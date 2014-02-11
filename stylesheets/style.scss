@@ -1,0 +1,312 @@
+@import "compass/reset";
+@import "compass/typography/vertical_rhythm";
+//@import "vendors/fontawesome/font-awesome";
+
+@import "susy";
+@import "settings";
+@import "layouts";
+@import "fonts";
+
+@include establish-baseline;
+
+// for debugging only
+$show-grid-backgrounds: false;
+$show-baseline-grid-backgrounds: false;
+
+body {
+    @include container($total-columns, $xs-layout, $sm-layout, $md-layout, $lg-layout, $wd-layout);
+
+    // for debugging only
+    @include susy-grid-background;
+
+    padding-top: $grid-padding;
+    padding-bottom: $grid-padding;
+}
+
+/* fonts */
+
+body { font-family: "Palatino", sans-serif; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+h1 { @include adjust-font-size-to($h1-font-size, $h1-line-multiple); }
+h2 { @include adjust-font-size-to($h2-font-size, $h2-line-multiple); }
+h3 { @include adjust-font-size-to($h3-font-size, $h3-line-multiple); }
+
+p, dt { 
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
+
+a { 
+    text-decoration: none;
+    color: inherit;
+
+    // default behavior
+    &[href^="http"] { @extend %external-link-icon; }
+    &[href^="mailto:"] { @extend %email-icon; }
+    &.phone { @extend %phone-icon; }
+    &.mobile { @extend %mobile-icon; }
+    &.fax { @extend %fax-icon; }
+
+    // overriding
+    &.social { &:before{ content: "" attr(data-network) "# "; } }
+    &.twitter, &[href*='twitter.com'] { @extend %twitter-icon; }
+    &.github, &[href*='github.com'] { @extend %github-icon; }
+    &.linkedin, &[href*='linkedin.com'] { @extend %linkedin-icon; }
+}
+
+/* Header */
+
+header {
+    // header span all grid
+    @include span-columns($total-columns omega);
+
+    text-align: center;
+
+    h1 {
+        span[itemprop="givenName"] { color: $firstname-color; }
+        span[itemprop="familyName"] { color: $familyname-color; text-transform: uppercase; }
+    }
+
+    h2 {
+        font-style: italic;
+        color: $title-color;
+    }
+
+    [itemprop='address'] { color: $address-color; }
+
+    // xs to small
+    @media screen and (max-width: $sm-layout-max) {
+        #title {
+            @include span-columns(12);
+            @include trailer(1); 
+        }
+
+        .details {
+            @include span-columns(12);
+        }
+
+        img {
+            @include trailer(1); 
+            @include span-columns(12);
+        }
+    }
+
+    // small
+    @media screen and (min-width: $sm-layout-min) and (max-width: $sm-layout-max) {
+        img {
+            @include pad(3,3);
+            @include leader(1);
+            @include trailer(1); 
+            @include span-columns(6);
+        }
+    }
+
+    // medium and beyond
+    @media screen and (min-width: $md-layout-min), print, projection {
+
+        &.with-photo {
+            #title {
+                @include span-columns(8);
+                text-align: right;
+
+                h2 { @include trailer(0.5); }
+            }
+
+            .details {
+                @include span-columns(8);
+                margin-left: 0px;
+                text-align: right;
+            }
+
+            img {
+                @include span-columns(4 omega);
+            }
+        }
+
+        &:not(.with-photo) {
+            #title {
+                @include span-columns(7);
+                text-align: left;
+            }
+
+            .details {
+                @include span-columns(5 omega);
+                text-align: right;
+            }
+        }
+    }
+
+    // large and beyond
+    @media screen and (min-width: $lg-layout-min), print, projection {
+        &.with-photo {
+            #title {
+                @include span-columns(9);
+            }
+
+            .details {
+                @include span-columns(9);
+            }
+
+            img {
+                @include span-columns(3 omega);
+            }
+        }
+    }
+}
+
+/* Section */
+
+section {
+    // span all grid
+    @include span-columns($total-columns omega);
+
+    // paragraph
+
+    > p { 
+        @include leader(1);
+        @include span-columns(12 omega);
+        text-align: justify; 
+    }
+
+    // headers
+
+    > h2 {
+        @include leader(1, $h2-font-size);
+        @include span-columns(12 omega);
+        color: $section-title-color;
+
+        &:before {
+            content: "";
+            display: inline-block;
+            margin-right: gutter();
+            width: space(2) - gutter();
+            height: rhythm($h2-line-multiple/3, $h2-font-size);
+            margin-bottom: rhythm($h2-line-multiple/6, $h2-font-size);
+            background-color: $section-rectangle-color;
+        }
+    }
+
+    > h3 {
+        @include push(2);
+        @include leader(1, $h3-font-size);
+        @include span-columns(10 omega);
+    }
+
+    // description list
+
+    > dl {
+        @include span-columns(12 omega);
+
+        dl {
+            @include pull(2, 10);
+        }
+    }
+
+    #{nest('&:not(.listing) > dl', '> dt, > dd')},
+    #{nest('&.listing > dl', '> dt:first-of-type, > dd:first-of-type')} {
+        @include leader(1); 
+    }
+
+    dt {
+        @include span-columns(2);
+        text-align: right;
+        clear: both;
+    }
+
+    dd {
+        @include span-columns(10 omega); 
+
+        dt {
+            font-style: italic;
+        } 
+    }
+
+    // jumbotron
+
+    &.jumbotron {
+        #{headings(2)} {
+            display: none;
+        }
+
+        @include leader(1);
+        @include span-columns($total-columns omega);
+        @include trailer(1);
+
+        &, p {
+            text-align: center;
+        }
+    }
+}
+
+/* Footer */
+
+footer {
+    // header span all grid
+    @include span-columns($total-columns omega);
+    @include rhythm(1, 1);
+
+    text-align: center;
+
+    li { display: inline; &:before{ content: '\25CF'; padding: 10px; color: $section-rectangle-color; } }
+}
+
+//
+// media SCREEN
+//
+
+@media screen {
+    #qrcode {
+        display: none;
+    }
+}
+
+//
+// media PRINT, PROJECTION
+//
+
+@media print, projection {
+    @page {
+        /* always print with A4 */
+        size: portrait;
+        size: 210mm 297mm;
+
+        /* this affects the margin in the printer settings */
+        margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+        padding: 0;
+
+        /* too bad @page is not well supported */
+
+        // counter-increment: page;
+        // counter-reset: page 1;
+
+        // @bottom-right {
+        //     content: counter(page) " of " counter(pages);
+        // }
+    }
+
+    // layout
+
+    body { min-width: $lg-layout-min; } // in order to have a decent rendering
+    
+    #qrcode {
+        @include span-columns(2, 9);
+        max-width: convert-length($qrcode-width, em);
+    }
+
+    // page break
+    
+    h2, h3 { page-break-after: avoid; }
+    dt { page-break-after: avoid !important; }
+    dd, p { page-break-before: avoid !important;; }
+    dl, dt, dd, p { orphans: 3; widows: 3; }
+    dt, dd, p { page-break-inside: avoid !important; }
+}

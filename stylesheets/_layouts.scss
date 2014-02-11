@@ -1,0 +1,55 @@
+// ------------------------------------------------------------------------------------
+//
+// Layouts
+//
+// default                      12  ie
+// xs-layout     *  --> 479     12  mobile
+// sm-layout    480 --> 767     12  small tablet
+// md-layout    768 --> 991     12  tablet
+// lg-layout    992 --> 1199    12  desktop
+// wd-layout   1200 --> *       12  large desktop
+//
+// ------------------------------------------------------------------------------------
+
+@import "settings";
+
+/* default grid value */
+
+$total-columns: 12;                 // default number of columns
+$column-width:  4em;
+$gutter-width:  2em;
+$grid-padding:  $gutter-width;
+
+$container-style: magic;
+
+/* layouts settings */
+
+// extra small layout / watch, blackberry, etc.
+$xs-columns:        $total-columns;
+$xs-layout-max:     convert-length(479px, em);
+
+// small layout / phone
+$sm-columns:        $total-columns;
+$sm-layout-min:     convert-length(480px, em);
+$sm-layout-max:     convert-length(767px, em);
+
+// medium layout / tablet
+$md-columns:        $total-columns;
+$md-layout-min:     convert-length(768px, em);
+$md-layout-max:     convert-length(991px, em);
+
+// large layout / desktop
+$lg-columns:        $total-columns;
+$lg-layout-min:     convert-length(992px, em);
+$lg-layout-max:     convert-length(1199px, em);
+
+// wide layout / wide desktop
+$wd-columns:        $total-columns;
+$wd-layout-min:     convert-length(1200px, em);
+
+// layout definition
+$xs-layout:                                     $xs-columns     $xs-layout-max;
+$sm-layout:         $sm-layout-min              $sm-columns     $sm-layout-max;
+$md-layout:         $md-layout-min              $md-columns     $md-layout-max;
+$lg-layout:         $lg-layout-min              $lg-columns     $lg-layout-max;
+$wd-layout:         $wd-layout-min              $wd-columns;

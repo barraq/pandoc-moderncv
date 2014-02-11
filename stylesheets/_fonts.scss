@@ -1,0 +1,37 @@
+$fa-font-path:  "../fonts" !default;
+$fa-version:    "4.0.3" !default;
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+  src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+    url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+    url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+    url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+  //src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+
+%icon {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-right: 5px;
+}
+
+// info icons
+%external-link-icon:before { @extend %icon; content: $external-link-icon !important; }
+%email-icon:before { @extend %icon; content: $email-icon !important; }
+%phone-icon:before { @extend %icon; content: $phone-icon !important; }
+%mobile-icon:before { @extend %icon; content: $mobile-icon !important; }
+%fax-icon:before { @extend %icon; content: $fax-icon !important; }
+
+// social icons
+%twitter-icon:before { @extend %icon; content: $fa-var-twitter !important; }
+%github-icon:before { @extend %icon; content: $fa-var-github !important; }
+%linkedin-icon:before { @extend %icon; content: $fa-var-linkedin !important; }
