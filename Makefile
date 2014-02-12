@@ -1,11 +1,17 @@
 SRC_DIR =  cv
 BUILD_DIR = build
 FONTS_DIR = fonts
+SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
 HTMLTOPDF = wkpdf
 
-PARTS_SOURCES = $(shell find $(SRC_DIR) -name '*.md'  -not -name 'cv.md')
+ifeq "$(wildcard $(SRC_DIR) )" ""
+	PARTS_SOURCES=
+else
+	PARTS_SOURCES = $(shell find $(SRC_DIR) -name '*.md'  -not -name 'cv.md')
+endif
+
 PARTS = $(patsubst $(SRC_DIR)/%.md, $(BUILD_DIR)/%.html, $(PARTS_SOURCES))
 
 # before-body contains public or private parts
@@ -26,12 +32,22 @@ after-body = $(filter-out $(BUILD_DIR)/public.html $(BUILD_DIR)/private.html, $(
 # default target is build CV in html
 all: html
 
+
 # Targets for creating working directories
 directories: $(BUILD_DIR) $(DIST_DIR)
 $(BUILD_DIR):
 	mkdir $(BUILD_DIR)
 $(DIST_DIR):
 	mkdir $(DIST_DIR)
+
+# Targets for creating scaffold
+scaffold:
+ifeq "$(wildcard $(SRC_DIR) )" ""
+	@rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
+	@echo $(SRC_DIR) created, enjoy!;
+else 
+	@echo $(SRC_DIR) already exists!;
+endif
 
 # Target for building stylesheets
 style: stylesheets/*.scss
