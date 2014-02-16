@@ -62,19 +62,33 @@ $ make pdf HTMLTOPDF=wkhtmltopdf
 <h2>
 <a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 
+<h3>
+<a name="html5" class="anchor" href="#html5"><span class="octicon octicon-link"></span></a>HTML5</h3>
+
 <table>
 <thead><tr>
 <th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png" alt="Pandoc-ModernCV large-screen preview "></th>
 </tr></thead>
 <tbody>
 <tr>
-<td align="center"><strong>Screenshot of the scaffold CV taken for a large screen.</strong></td>
+<td align="center"><strong>Screenshot of the HTML scaffold CV taken for a large screen.</strong></td>
 </tr>
 <tr>
 <td align="center">See also <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png">medium-screen preview</a> or <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png">small-screen preview</a>
 </td>
 </tr>
 </tbody>
+</table><h3>
+<a name="pdf" class="anchor" href="#pdf"><span class="octicon octicon-link"></span></a>PDF</h3>
+
+<table>
+<thead><tr>
+<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png" alt="Pandoc-ModernCV PDF export preview "></th>
+</tr></thead>
+<tbody><tr>
+<td align="center">
+<strong>Screenshot of the PDF scaffold CV.</strong> Notice the QR-Code</td>
+</tr></tbody>
 </table><h2>
 <a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h2>
 
@@ -95,8 +109,8 @@ address:
   city: City 
   country: Country
 settings:
-  - private-mobile: true
-  - private-email: true
+  protect-mobile: true
+  protect-email: true
 ---
 
 put here your *CV* data
@@ -194,26 +208,31 @@ put here your *CV* data
 </tr>
 <tr>
 <td><strong>settings</strong></td>
-<td align="center">list</td>
+<td align="center">map</td>
 <td></td>
 </tr>
 <tr>
-<td>private-email</td>
+<td>protect-email</td>
 <td align="center">boolean</td>
 <td>true/false (default: false)</td>
 </tr>
 <tr>
-<td>private-mobile</td>
+<td>protect-mobile</td>
 <td align="center">boolean</td>
 <td>true/false (default: false)</td>
 </tr>
 <tr>
-<td>private-phone</td>
+<td>protect-phone</td>
 <td align="center">boolean</td>
 <td>true/false (default: false)</td>
 </tr>
 <tr>
-<td>private-fax</td>
+<td>protect-fax</td>
+<td align="center">boolean</td>
+<td>true/false (default: false)</td>
+</tr>
+<tr>
+<td>display-lastupdate</td>
 <td align="center">boolean</td>
 <td>true/false (default: false)</td>
 </tr>
@@ -255,8 +274,8 @@ put here your *CV* data
 <pre><code>---
 ...
 settings:
-  - private-mobile: true # this protect *mobile*
-  - private-email: false # this unprotect *email*
+  protect-mobile: true # this protect *mobile*
+  protect-email: false # this unprotect *email*
 ---
 </code></pre>
 
