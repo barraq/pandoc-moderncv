@@ -53,8 +53,8 @@ Your CV can be customized with metadata. Metadata are located between two --- se
       city: City 
       country: Country
     settings:
-      - protect-mobile: true
-      - protect-email: true
+      protect-mobile: true
+      protect-email: true
     ---
 
     put here your *CV* data
@@ -109,8 +109,8 @@ Metadata can be (un)protected independently as follow:
     ---
     ...
     settings:
-      - protect-mobile: true # this protect *mobile*
-      - protect-email: false # this unprotect *email*
+      protect-mobile: true # this protect *mobile*
+      protect-email: false # this unprotect *email*
     ---
 
 
