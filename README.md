@@ -18,7 +18,11 @@ What it does it that it creates a scaffold *cv* located in the /cv directory and
 
 To export the CV to pdf just do:
 
+    on MacOS X
     $ make pdf
+
+    on Linux/Windows
+    $ make pdf HTMLTOPDF=wkhtmltopdf
 
 Hit the link to [preview the generated pdf](https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf) 
 
@@ -31,16 +35,107 @@ There you are!
 | **Screenshot of the scaffold CV taken for a large screen.**  |
 | See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png)
 
+## Customize
 
-## Themes
+### Metadata
+
+Your CV can be customized with metadata. Metadata are located between two --- separators at the top of the cv.md file and are formated using the YAML format:
+
+    ---
+    lang: en
+    title: Résumé Title
+    firstname: Firstname
+    lastname: Lastname
+    photo: images/picture.png
+    email: contact@yoursite.com
+    mobile: '+1 (234) 567 890'
+    address:
+      city: City 
+      country: Country
+    settings:
+      - private-mobile: true
+      - private-email: true
+    ---
+
+    put here your *CV* data
+
+Currently Pandoc-MordernCV supports the following metadata:
+
+| key                     |  type    | value                          |
+| ----------------------- | :------: | ------------------------------ |
+| lang                    | string   | en                             |
+| title                   | string   | Résumé Title                   |
+| firstname               | string   | Firstname                      |
+| lastname                | string   | Lastname                       |
+| photo                   | url      | path/to/photo.png              |
+| qrcode                  | url      | images/qrcode.png              |
+| contact                 | url      | http://contact.yoursite.com    |
+| homepage                | url      |  http://yoursite.com           |
+| email                   | email    | contact@yoursite.com           |
+| mobile                  | string   | '+1 (234) 567 890'             |
+| phone                   | string   | '+2 (345) 678 901'             |
+| fax                     | string   | '+3 (456) 789 012'             |
+| footer                  | markdown | **custom** *markdown* text     |
+| **address**             | map      |                                |
+|   city                  | string   | City                           |
+|   country               | string   | Country                        |
+| **settings**            | list     |                                |
+| private-email           | boolean  | true/false (default: false)    |
+| private-mobile          | boolean  | true/false (default: false)    |
+| private-phone           | boolean  | true/false (default: false)    |
+| private-fax             | boolean  | true/false (default: false)    |
+
+### Private & Public CV
+
+It is often handy to hide/show specific informations in your CV depending on where it is published/sent. Pandoc-ModernCV supports **public** and **private** cv:
+* when **public**:
+    - protected metadata are removed.
+    - *cv/public.md* is displayed just after the header and before the CV body.
+* when **private**:
+    - protected metadata are displayed.
+    - *cv/private.md* is displayed just after the header and before the CV body.
+
+#### Protecting Metadata
+
+Currently Pandoc-ModernCV can protect the following metadata:
+* email
+* mobile
+* phone
+* fax
+
+Metadata can be (un)protected independently as follow:
+
+    ---
+    ...
+    settings:
+      - private-mobile: true # this protect *mobile*
+      - private-email: false # this unprotect *email*
+    ---
+
+
+#### Building Private/Public CV
+
+To build a public CV just do:
+
+    $ make html public-cv=true
+    or
+    $ make pdf public-cv=true
+
+To build a private CV just do:
+
+    $ make html private-cv=true
+    or
+    $ make pdf private-cv=true
+
+### Themes
 
 Currently pandoc-moderncv supports a single theme: classic.
 
-Feel free to contribute and send me your custom theme!
+> Feel free to contribute and send me your custom theme!
 
-## Customization
+### Colors, Fonts, Icons
 
-All themes can be customized through SCSS variables defined in *stylesheets/_settings.scss*. Currently the variables are:
+All themes can be customized through variables defined in *stylesheets/_settings.scss*. Currently the variables are:
 
     $base-font-size: 18px;
     $base-line-height: 23px;
@@ -74,3 +169,13 @@ All themes can be customized through SCSS variables defined in *stylesheets/_set
     $mobile-icon: $fa-var-mobile;
     $fax-icon: $fa-var-print;
 
+## Requirements
+
+For building your CV in html you need:
+
+* Compass, http://compass-style.org/
+* Pandoc, http://johnmacfarlane.net/pandoc/
+
+For exporting your CV to pdf you need one of those:
+* wkpdf (MacOS X), http://plessl.github.io/wkpdf/
+* wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
