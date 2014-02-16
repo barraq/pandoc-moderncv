@@ -1,6 +1,3 @@
-pandoc-moderncv
-===============
-
 **Pandoc-ModernCV** is a Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
 
 Pandoc-ModernCV currently supports *pdf* and *html5* export formats. The html5 output is responsive and supports rendering for small to large screens.
@@ -34,14 +31,14 @@ There you are!
 
 | ![Pandoc-ModernCV large-screen preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png) |
 | :----: |
-| **Screenshot of the scaffold CV taken for a large screen.**  |
+| **Screenshot of the HTML scaffold CV taken for a large screen.**  |
 | See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png) |
 
 ### PDF
 
 | ![Pandoc-ModernCV PDF export preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png) |
 | :----: |
-| **Screenshot of the scaffold CV taken for a large screen.**  |
+| **Screenshot of the PDF scaffold CV.** Notice the QR-Code  |
 
 ## Customize
 
