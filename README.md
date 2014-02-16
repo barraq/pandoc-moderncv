@@ -30,10 +30,18 @@ There you are!
 
 ## Screenshots
 
+### HTML5
+
 | ![Pandoc-ModernCV large-screen preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png) |
 | :----: |
 | **Screenshot of the scaffold CV taken for a large screen.**  |
-| See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png)
+| See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png) |
+
+### PDF
+
+| ![Pandoc-ModernCV PDF export preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png) |
+| :----: |
+| **Screenshot of the scaffold CV taken for a large screen.**  |
 
 ## Customize
 
