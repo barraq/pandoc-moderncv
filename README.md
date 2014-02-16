@@ -53,8 +53,8 @@ Your CV can be customized with metadata. Metadata are located between two --- se
       city: City 
       country: Country
     settings:
-      - private-mobile: true
-      - private-email: true
+      - protect-mobile: true
+      - protect-email: true
     ---
 
     put here your *CV* data
@@ -80,10 +80,10 @@ Currently Pandoc-MordernCV supports the following metadata:
 |   city                  | string   | City                           |
 |   country               | string   | Country                        |
 | **settings**            | list     |                                |
-| private-email           | boolean  | true/false (default: false)    |
-| private-mobile          | boolean  | true/false (default: false)    |
-| private-phone           | boolean  | true/false (default: false)    |
-| private-fax             | boolean  | true/false (default: false)    |
+| protect-email           | boolean  | true/false (default: false)    |
+| protect-mobile          | boolean  | true/false (default: false)    |
+| protect-phone           | boolean  | true/false (default: false)    |
+| protect-fax             | boolean  | true/false (default: false)    |
 
 ### Private & Public CV
 
@@ -108,8 +108,8 @@ Metadata can be (un)protected independently as follow:
     ---
     ...
     settings:
-      - private-mobile: true # this protect *mobile*
-      - private-email: false # this unprotect *email*
+      - protect-mobile: true # this protect *mobile*
+      - protect-email: false # this unprotect *email*
     ---
 
 

@@ -43,7 +43,7 @@
     <ul class="details">
       <!-- phone -->
       $if(phone)$
-      $if(settings.private-phone)$
+      $if(settings.protect-phone)$
       $if(privatecv)$
       <li><a class='phone' href="phoneto:$phone$">$phone$</a></li>
       $endif$
@@ -53,7 +53,7 @@
       $endif$
       <!-- mobile -->
       $if(mobile)$
-      $if(settings.private-mobile)$
+      $if(settings.protect-mobile)$
       $if(privatecv)$
       <li><a class='mobile' href="phoneto:$mobile$">$mobile$</a></li>
       $endif$
@@ -63,7 +63,7 @@
       $endif$
       <!-- fax -->
       $if(fax)$
-      $if(settings.private-fax)$
+      $if(settings.protect-fax)$
       $if(privatecv)$
       <li><a class='fax' href="phoneto:$fax$">$fax$</a></li>
       $endif$
@@ -73,7 +73,7 @@
       $endif$
       <!-- email -->
       $if(email)$
-      $if(settings.private-email)$
+      $if(settings.protect-email)$
       $if(privatecv)$
       <li><a href="mailto:$email$">$email$</a></li>
       $endif$
