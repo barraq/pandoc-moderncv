@@ -257,6 +257,7 @@ footer {
     text-align: center;
 
     li { display: inline; &:before{ content: '\25CF'; padding: 10px; color: $section-rectangle-color; } }
+    p { @include leader(1); }
 }
 
 //

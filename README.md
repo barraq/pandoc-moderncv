@@ -79,11 +79,12 @@ Currently Pandoc-MordernCV supports the following metadata:
 | **address**             | map      |                                |
 |   city                  | string   | City                           |
 |   country               | string   | Country                        |
-| **settings**            | list     |                                |
+| **settings**            | map      |                                |
 | protect-email           | boolean  | true/false (default: false)    |
 | protect-mobile          | boolean  | true/false (default: false)    |
 | protect-phone           | boolean  | true/false (default: false)    |
 | protect-fax             | boolean  | true/false (default: false)    |
+| display-lastupdate      | boolean  | true/false (default: false)    |
 
 ### Private & Public CV
 

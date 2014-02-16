@@ -5,6 +5,7 @@ SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
 HTMLTOPDF = wkpdf
+DATE = $(shell date +'%B %d, %Y')
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
 	PARTS_SOURCES=
@@ -31,7 +32,6 @@ after-body = $(filter-out $(BUILD_DIR)/public.html $(BUILD_DIR)/private.html, $(
 
 # default target is build CV in html
 all: html
-
 
 # Targets for creating working directories
 directories: $(BUILD_DIR) $(DIST_DIR)
@@ -74,6 +74,7 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	  --to html5 \
 	  $(before-body) \
 	  $(after-body) \
+	  --variable=date:'$(DATE)' \
 	  --css stylesheets/style.css \
 	  --output $(DIST_DIR)/cv.html $(SRC_DIR)/cv.md
 
@@ -88,7 +89,11 @@ endif
 # Target for build CV part in html
 parts: $(PARTS)
 $(PARTS): $(BUILD_DIR)/%.html: $(SRC_DIR)/%.md | directories
-	pandoc --section-divs --from markdown+header_attributes --to html5 -o $@ $<
+	pandoc \
+	--section-divs \
+	--from markdown+header_attributes \
+	--variable=date:'$(DATE)' \
+	--to html5 -o $@ $<
 
 # Target for cleaning
 clean:
