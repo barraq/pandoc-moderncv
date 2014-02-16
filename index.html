@@ -32,6 +32,8 @@
 
 <p>Pandoc-ModernCV currently supports <em>pdf</em> and <em>html5</em> export formats. The html5 output is responsive and supports rendering for small to large screens.</p>
 
+<p>{:toc}</p>
+
 <h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
@@ -48,7 +50,11 @@ $ make html
 
 <p>To export the CV to pdf just do:</p>
 
-<pre><code>$ make pdf
+<pre><code>on MacOS X
+$ make pdf
+
+on Linux/Windows
+$ make pdf HTMLTOPDF=wkhtmltopdf
 </code></pre>
 
 <p>Hit the link to <a href="https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf">preview the generated pdf</a> </p>
@@ -72,16 +78,220 @@ $ make html
 </tr>
 </tbody>
 </table><h2>
-<a name="themes" class="anchor" href="#themes"><span class="octicon octicon-link"></span></a>Themes</h2>
+<a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h2>
+
+<h3>
+<a name="metadata" class="anchor" href="#metadata"><span class="octicon octicon-link"></span></a>Metadata</h3>
+
+<p>Your CV can be customized with metadata. Metadata are located between two --- separators at the top of the cv.md file and are formated using the YAML format:</p>
+
+<pre><code>---
+lang: en
+title: Résumé Title
+firstname: Firstname
+lastname: Lastname
+photo: images/picture.png
+email: contact@yoursite.com
+mobile: '+1 (234) 567 890'
+address:
+  city: City 
+  country: Country
+settings:
+  - private-mobile: true
+  - private-email: true
+---
+
+put here your *CV* data
+</code></pre>
+
+<p>Currently Pandoc-MordernCV supports the following metadata:</p>
+
+<table>
+<thead><tr>
+<th>key</th>
+<th align="center">type</th>
+<th>value</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>lang</td>
+<td align="center">string</td>
+<td>en</td>
+</tr>
+<tr>
+<td>title</td>
+<td align="center">string</td>
+<td>Résumé Title</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td align="center">string</td>
+<td>Firstname</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td align="center">string</td>
+<td>Lastname</td>
+</tr>
+<tr>
+<td>photo</td>
+<td align="center">url</td>
+<td>path/to/photo.png</td>
+</tr>
+<tr>
+<td>qrcode</td>
+<td align="center">url</td>
+<td>images/qrcode.png</td>
+</tr>
+<tr>
+<td>contact</td>
+<td align="center">url</td>
+<td><a href="http://contact.yoursite.com">http://contact.yoursite.com</a></td>
+</tr>
+<tr>
+<td>homepage</td>
+<td align="center">url</td>
+<td><a href="http://yoursite.com">http://yoursite.com</a></td>
+</tr>
+<tr>
+<td>email</td>
+<td align="center">email</td>
+<td><a href="mailto:contact@yoursite.com">contact@yoursite.com</a></td>
+</tr>
+<tr>
+<td>mobile</td>
+<td align="center">string</td>
+<td>'+1 (234) 567 890'</td>
+</tr>
+<tr>
+<td>phone</td>
+<td align="center">string</td>
+<td>'+2 (345) 678 901'</td>
+</tr>
+<tr>
+<td>fax</td>
+<td align="center">string</td>
+<td>'+3 (456) 789 012'</td>
+</tr>
+<tr>
+<td>footer</td>
+<td align="center">markdown</td>
+<td>
+<strong>custom</strong> <em>markdown</em> text</td>
+</tr>
+<tr>
+<td><strong>address</strong></td>
+<td align="center">map</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td align="center">string</td>
+<td>City</td>
+</tr>
+<tr>
+<td>country</td>
+<td align="center">string</td>
+<td>Country</td>
+</tr>
+<tr>
+<td><strong>settings</strong></td>
+<td align="center">list</td>
+<td></td>
+</tr>
+<tr>
+<td>private-email</td>
+<td align="center">boolean</td>
+<td>true/false (default: false)</td>
+</tr>
+<tr>
+<td>private-mobile</td>
+<td align="center">boolean</td>
+<td>true/false (default: false)</td>
+</tr>
+<tr>
+<td>private-phone</td>
+<td align="center">boolean</td>
+<td>true/false (default: false)</td>
+</tr>
+<tr>
+<td>private-fax</td>
+<td align="center">boolean</td>
+<td>true/false (default: false)</td>
+</tr>
+</tbody>
+</table><h3>
+<a name="private--public-cv" class="anchor" href="#private--public-cv"><span class="octicon octicon-link"></span></a>Private &amp; Public CV</h3>
+
+<p>It is often handy to hide/show specific informations in your CV depending on where it is published/sent. Pandoc-ModernCV supports <strong>public</strong> and <strong>private</strong> cv:</p>
+
+<ul>
+<li>when <strong>public</strong>:
+
+<ul>
+<li>protected metadata are removed.</li>
+<li>
+<em>cv/public.md</em> is displayed just after the header and before the CV body.</li>
+</ul>
+</li>
+<li>when <strong>private</strong>:
+
+<ul>
+<li>protected metadata are displayed.</li>
+<li>
+<em>cv/private.md</em> is displayed just after the header and before the CV body.</li>
+</ul>
+</li>
+</ul><h4>
+<a name="protecting-metadata" class="anchor" href="#protecting-metadata"><span class="octicon octicon-link"></span></a>Protecting Metadata</h4>
+
+<p>Currently Pandoc-ModernCV can protect the following metadata:</p>
+
+<ul>
+<li>email</li>
+<li>mobile</li>
+<li>phone</li>
+<li>fax</li>
+</ul><p>Metadata can be (un)protected independently as follow:</p>
+
+<pre><code>---
+...
+settings:
+  - private-mobile: true # this protect *mobile*
+  - private-email: false # this unprotect *email*
+---
+</code></pre>
+
+<h4>
+<a name="building-privatepublic-cv" class="anchor" href="#building-privatepublic-cv"><span class="octicon octicon-link"></span></a>Building Private/Public CV</h4>
+
+<p>To build a public CV just do:</p>
+
+<pre><code>$ make html public-cv=true
+or
+$ make pdf public-cv=true
+</code></pre>
+
+<p>To build a private CV just do:</p>
+
+<pre><code>$ make html private-cv=true
+or
+$ make pdf private-cv=true
+</code></pre>
+
+<h3>
+<a name="themes" class="anchor" href="#themes"><span class="octicon octicon-link"></span></a>Themes</h3>
 
 <p>Currently pandoc-moderncv supports a single theme: classic.</p>
 
+<blockquote>
 <p>Feel free to contribute and send me your custom theme!</p>
+</blockquote>
 
-<h2>
-<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h2>
+<h3>
+<a name="colors-fonts-icons" class="anchor" href="#colors-fonts-icons"><span class="octicon octicon-link"></span></a>Colors, Fonts, Icons</h3>
 
-<p>All themes can be customized through SCSS variables defined in <em>stylesheets/_settings.scss</em>. Currently the variables are:</p>
+<p>All themes can be customized through variables defined in <em>stylesheets/_settings.scss</em>. Currently the variables are:</p>
 
 <pre><code>$base-font-size: 18px;
 $base-line-height: 23px;
@@ -115,6 +325,25 @@ $phone-icon: $fa-var-phone;
 $mobile-icon: $fa-var-mobile;
 $fax-icon: $fa-var-print;
 </code></pre>
+
+<h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>For building your CV in html you need:</p>
+
+<ul>
+<li>Compass, <a href="http://compass-style.org/">http://compass-style.org/</a>
+</li>
+<li>Pandoc, <a href="http://johnmacfarlane.net/pandoc/">http://johnmacfarlane.net/pandoc/</a>
+</li>
+</ul><p>For exporting your CV to pdf you need one of those:</p>
+
+<ul>
+<li>wkpdf (MacOS X), <a href="http://plessl.github.io/wkpdf/">http://plessl.github.io/wkpdf/</a>
+</li>
+<li>wkhtmltopdf (Linux, Windows), <a href="http://wkhtmltopdf.org/">http://wkhtmltopdf.org/</a>
+</li>
+</ul>
         </section>
 
         <aside id="sidebar">
