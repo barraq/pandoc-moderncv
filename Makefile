@@ -80,9 +80,9 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 # Target for building CV document in PDF
 pdf: html
 ifeq ($(HTMLTOPDF),wkpdf)
-	wkpdf --paper a4 --margins 30 --print-background yes --orientation portrait --stylesheet-media print --source cv.html --output cv.pdf
+	wkpdf --paper a4 --margins 30 --print-background yes --orientation portrait --stylesheet-media print --source $(DIST_DIR)/cv.html --output $(DIST_DIR)/cv.pdf
 else
-	wkhtmltopdf --orientation Portrait --page-size A4 --margin-top 15 --margin-left 15 --margin-right 15 --margin-bottom 15 cv.html cv.pdf
+	wkhtmltopdf --orientation Portrait --page-size A4 --margin-top 15 --margin-left 15 --margin-right 15 --margin-bottom 15 $(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
 endif
 
 # Target for build CV part in html
