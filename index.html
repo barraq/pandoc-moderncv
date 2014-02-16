@@ -1,42 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Pandoc-moderncv by barraq</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>Pandoc-moderncv by barraq</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
+      <div class="inner">
         <h1>Pandoc-moderncv</h1>
-        <p>Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predifined theme and de­fine your own style by chang­ing the colours, the fonts, etc.</p>
+        <h2>Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to de­fine your own style by chang­ing colors, fonts, etc.</h2>
+        <a href="https://github.com/barraq/pandoc-moderncv" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-        <p class="view"><a href="https://github.com/barraq/pandoc-moderncv">View the Project on GitHub <small>barraq/pandoc-moderncv</small></a></p>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p><strong>Pandoc-ModernCV</strong> is a Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.</p>
 
+<p>Pandoc-ModernCV currently supports <em>pdf</em> and <em>html5</em> export formats. The html5 output is responsive and supports rendering for small to large screens.</p>
 
-        <ul>
-          <li><a href="https://github.com/barraq/pandoc-moderncv/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/barraq/pandoc-moderncv/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/barraq/pandoc-moderncv">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><strong>Pandoc-ModernCV</strong> is a pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and define your own style by changing colors, fonts, etc.</p>
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
-<p>Pandoc-ModernCV currently support pdf and html5 export formats. The html5 output is responsive and support rendering for small to large screens.</p>
-
-<h3>
-<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h3>
-
-<p>The simplest way to get started with <em>pandoc-moderncv</em> is to use the provided scaffold. 
-In a terminal just do:</p>
+<p>The simplest way to get started with <em>pandoc-moderncv</em> is to use the provided scaffold. In a terminal just do:</p>
 
 <pre><code>$ make scaffold
 $ make html
@@ -47,18 +46,95 @@ $ make html
 <pre><code>$ open dist/cv.html
 </code></pre>
 
+<p>To export the CV to pdf just do:</p>
+
+<pre><code>$ make pdf
+</code></pre>
+
+<p>Hit the link to <a href="https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf">preview the generated pdf</a> </p>
+
 <p>There you are!</p>
 
-<h3>
-<a name="scaffold-preview" class="anchor" href="#scaffold-preview"><span class="octicon octicon-link"></span></a>Scaffold Preview</h3>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/barraq">barraq</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+<h2>
+<a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<table>
+<thead><tr>
+<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png" alt="Pandoc-ModernCV large-screen preview "></th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center"><strong>Screenshot of the scaffold CV taken for a large screen.</strong></td>
+</tr>
+<tr>
+<td align="center">See also <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png">medium-screen preview</a> or <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png">small-screen preview</a>
+</td>
+</tr>
+</tbody>
+</table><h2>
+<a name="themes" class="anchor" href="#themes"><span class="octicon octicon-link"></span></a>Themes</h2>
+
+<p>Currently pandoc-moderncv supports a single theme: classic.</p>
+
+<p>Feel free to contribute and send me your custom theme!</p>
+
+<h2>
+<a name="customization" class="anchor" href="#customization"><span class="octicon octicon-link"></span></a>Customization</h2>
+
+<p>All themes can be customized through SCSS variables defined in <em>stylesheets/_settings.scss</em>. Currently the variables are:</p>
+
+<pre><code>$base-font-size: 18px;
+$base-line-height: 23px;
+
+$photo-width: 182px;
+$qrcode-width: 100px;
+
+// Size
+$h1-font-size:      $base-font-size*2;
+$h1-line-multiple:  2;
+$h2-font-size:      $base-font-size*1.5;
+$h2-line-multiple:  1.5;
+$h3-font-size:      $base-font-size*1.2;
+$h3-line-multiple:  1;
+
+// Colors
+$firstname-color: rgb(0, 0, 0);
+$familyname-color: rgb(0, 0, 0);
+$title-color: rgb(89, 89, 89);
+$address-color: rgb(0, 0, 0);
+$quote-color: rgb(0, 0, 0);
+$section-rectangle-color: rgb(191, 191, 191);
+$section-title-color: rgb(89, 89, 89);
+$subsection-color: rgb(0, 0, 0);
+$hint-color: rgb(0, 0, 0);
+
+// Icons
+$external-link-icon: $fa-var-external-link;
+$email-icon: $fa-var-envelope-o;
+$phone-icon: $fa-var-phone;
+$mobile-icon: $fa-var-mobile;
+$fax-icon: $fa-var-print;
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/barraq/pandoc-moderncv/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/barraq/pandoc-moderncv/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/barraq/pandoc-moderncv"></a> is maintained by <a href="https://github.com/barraq">barraq</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
