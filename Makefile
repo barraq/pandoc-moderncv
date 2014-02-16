@@ -15,11 +15,11 @@ endif
 PARTS = $(patsubst $(SRC_DIR)/%.md, $(BUILD_DIR)/%.html, $(PARTS_SOURCES))
 
 # before-body contains public or private parts
-before-body =
-ifeq ($(privatecv),TRUE)
+before-body = --variable=privatecv
+ifeq ($(private-cv),true)
 	before-body = --variable=privatecv --include-before-body $(BUILD_DIR)/private.html
 else
-	ifeq ($(privatecv),FALSE)
+	ifeq ($(public-cv),true)
 		before-body = --include-before-body $(BUILD_DIR)/public.html
 	endif
 endif
