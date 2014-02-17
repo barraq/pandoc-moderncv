@@ -1,6 +1,58 @@
 **Pandoc-ModernCV** is a Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
 
+With **Pandoc-ModernCV** simply write your CV in *Markdown*, compile it and publish it in a snap. 
+
 Pandoc-ModernCV currently supports *pdf* and *html5* export formats. The html5 output is responsive and supports rendering for small to large screens.
+
+## Preview & Screenshots
+
+### HTML5
+
+Live **html5** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.html) 
+
+| ![Pandoc-ModernCV large-screen preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png) |
+| :----: |
+| **Screenshot of the HTML scaffold CV taken for a large screen.**  |
+| See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png) |
+
+### PDF
+
+Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.pdf) 
+
+| ![Pandoc-ModernCV PDF export preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png) |
+| :----: |
+| **Screenshot of the PDF scaffold CV.** Notice the QR-Code  |
+
+## Requirements
+
+For building your CV in html you need:
+- [Compass](http://compass-style.org/), 
+- [Susy](http://susy.oddbird.net/),
+- [RSync](http://rsync.samba.org/),
+- [Pandoc](http://johnmacfarlane.net/pandoc/)
+
+For exporting your CV to pdf you need:
+- wkpdf or wkhtmltopdf:
+    - wkpdf (MacOS X), http://plessl.github.io/wkpdf/
+    - wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
+- exiftool, http://www.sno.phy.queensu.ca/~phil/exiftool/
+
+## Installation
+
+Install **Compass** and **Susy**:
+    
+    $ gem install compass
+    $ gem install susy
+
+Install **wkpdf** or **wkhtmltopdf**. If on MacOSX please check Troubleshooting section for installing correctly wkpdf.
+
+Install **Pandoc** by using your package manager or by using the provided installer http://johnmacfarlane.net/pandoc/installing.html (or using *cabal*)
+
+Install **exiftool** by using your package manager (use [brew](http://brew.sh/) on Mac)
+
+**rsync** should already be installed... if not, install it using your package manager.
+
+You are done!
 
 ## Getting Started
 
@@ -24,21 +76,6 @@ To export the CV to pdf just do:
 Hit the link to [preview the generated pdf](https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf) 
 
 There you are!
-
-## Screenshots
-
-### HTML5
-
-| ![Pandoc-ModernCV large-screen preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png) |
-| :----: |
-| **Screenshot of the HTML scaffold CV taken for a large screen.**  |
-| See also [medium-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png) or [small-screen preview](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png) |
-
-### PDF
-
-| ![Pandoc-ModernCV PDF export preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png) |
-| :----: |
-| **Screenshot of the PDF scaffold CV.** Notice the QR-Code  |
 
 ## Customize
 
@@ -67,7 +104,7 @@ Your CV can be customized with metadata. Metadata are located between two --- se
 Currently Pandoc-MordernCV supports the following metadata:
 
 | key                     |  type    | value                          |
-| ----------------------- | :------: | ------------------------------ |
+| :---------------------- | :------: | :----------------------------- |
 | lang                    | string   | en                             |
 | title                   | string   | Résumé Title                   |
 | firstname               | string   | Firstname                      |
@@ -175,13 +212,29 @@ All themes can be customized through variables defined in *stylesheets/_settings
     $mobile-icon: $fa-var-mobile;
     $fax-icon: $fa-var-print;
 
-## Requirements
+# Troubleshooting
 
-For building your CV in html you need:
+## Cannot load such file -- sass/script/node (LoadError)
 
-* Compass, http://compass-style.org/
-* Pandoc, http://johnmacfarlane.net/pandoc/
+For some reasons there is a bug when installing the latest version of Compass... your install of Sass get messed up (I didn't have time to investigate: if you have a better workaround/explanation let me know). 
 
-For exporting your CV to pdf you need one of those:
-* wkpdf (MacOS X), http://plessl.github.io/wkpdf/
-* wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
+To get over it just uninstall sass and install it again:
+
+    $ gem uninstall sass
+    $ gem install sass
+
+## Cannot load RubyCocoa library
+
+When trying to install wkpdf on MacOsx you may be told that *wkpdf requires that RubyCocoa is installed...* The fact is that using wkpdf with non-default Ruby installations is not supported.
+
+You must install wkpdf with the native ruby packaged on your mac:
+- https://github.com/plessl/wkpdf/issues/36
+- https://github.com/sstephenson/rbenv/issues/270
+
+You can use *rvm* or simply do:
+
+    $ sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install wkpdf
+
+To check if your install is correct be sure that the first line of */usr/bin/wkpdf* file looks like the following:
+
+    #!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby

@@ -1,0 +1,1 @@
+-Title="$title$" -Author="$firstname$ $lastname$" -Subject="$firstname$ $lastname$'s CV" -Creator="Pandoc-ModernCV" -ModDate="$date$" -CreationDate="$date$"

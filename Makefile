@@ -43,7 +43,7 @@ $(DIST_DIR):
 # Targets for creating scaffold
 scaffold:
 ifeq "$(wildcard $(SRC_DIR) )" ""
-	@rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
+	rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
 	@echo $(SRC_DIR) created, enjoy!;
 else 
 	@echo $(SRC_DIR) already exists!;
@@ -79,12 +79,21 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	  --output $(DIST_DIR)/cv.html $(SRC_DIR)/cv.md
 
 # Target for building CV document in PDF
-pdf: html
+pdf: html pdftags
 ifeq ($(HTMLTOPDF),wkpdf)
 	wkpdf --paper a4 --margins 30 --print-background yes --orientation portrait --stylesheet-media print --source $(DIST_DIR)/cv.html --output $(DIST_DIR)/cv.pdf
 else
 	wkhtmltopdf --orientation Portrait --page-size A4 --margin-top 15 --margin-left 15 --margin-right 15 --margin-bottom 15 $(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
 endif
+	exiftool $(shell cat $(BUILD_DIR)/pdftags.txt) $(DIST_DIR)/cv.pdf
+
+pdftags: $(SRC_DIR)/cv.md
+	pandoc \
+	--from markdown+yaml_metadata_block \
+	--template templates/pdf.metadata \
+	--template templates/pdf.metadata \
+	--variable=date:'$(DATE)' \
+	--output $(BUILD_DIR)/pdftags.txt $(SRC_DIR)/cv.md
 
 # Target for build CV part in html
 parts: $(PARTS)
