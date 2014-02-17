@@ -30,7 +30,89 @@
         <section id="main-content">
           <p><strong>Pandoc-ModernCV</strong> is a Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.</p>
 
+<p>With <strong>Pandoc-ModernCV</strong> simply write your CV in <em>Markdown</em>, compile it and publish it in a snap. </p>
+
 <p>Pandoc-ModernCV currently supports <em>pdf</em> and <em>html5</em> export formats. The html5 output is responsive and supports rendering for small to large screens.</p>
+
+<h2>
+<a name="preview--screenshots" class="anchor" href="#preview--screenshots"><span class="octicon octicon-link"></span></a>Preview &amp; Screenshots</h2>
+
+<h3>
+<a name="html5" class="anchor" href="#html5"><span class="octicon octicon-link"></span></a>HTML5</h3>
+
+<p>Live <strong>html5</strong> preview <a href="http://barraq.github.io/pandoc-moderncv/preview/cv.html">here</a> </p>
+
+<table>
+<thead><tr>
+<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png" alt="Pandoc-ModernCV large-screen preview "></th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="center"><strong>Screenshot of the HTML scaffold CV taken for a large screen.</strong></td>
+</tr>
+<tr>
+<td align="center">See also <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png">medium-screen preview</a> or <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png">small-screen preview</a>
+</td>
+</tr>
+</tbody>
+</table><h3>
+<a name="pdf" class="anchor" href="#pdf"><span class="octicon octicon-link"></span></a>PDF</h3>
+
+<p>Live <strong>pdf</strong> preview <a href="http://barraq.github.io/pandoc-moderncv/preview/cv.pdf">here</a> </p>
+
+<table>
+<thead><tr>
+<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png" alt="Pandoc-ModernCV PDF export preview "></th>
+</tr></thead>
+<tbody><tr>
+<td align="center">
+<strong>Screenshot of the PDF scaffold CV.</strong> Notice the QR-Code</td>
+</tr></tbody>
+</table><h2>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>For building your CV in html you need:</p>
+
+<ul>
+<li>
+<a href="http://compass-style.org/">Compass</a>, </li>
+<li>
+<a href="http://susy.oddbird.net/">Susy</a>,</li>
+<li>
+<a href="http://rsync.samba.org/">RSync</a>,</li>
+<li><a href="http://johnmacfarlane.net/pandoc/">Pandoc</a></li>
+</ul><p>For exporting your CV to pdf you need:</p>
+
+<ul>
+<li>wkpdf or wkhtmltopdf:
+
+<ul>
+<li>wkpdf (MacOS X), <a href="http://plessl.github.io/wkpdf/">http://plessl.github.io/wkpdf/</a>
+</li>
+<li>wkhtmltopdf (Linux, Windows), <a href="http://wkhtmltopdf.org/">http://wkhtmltopdf.org/</a>
+</li>
+</ul>
+</li>
+<li>exiftool, <a href="http://www.sno.phy.queensu.ca/%7Ephil/exiftool/">http://www.sno.phy.queensu.ca/~phil/exiftool/</a>
+</li>
+</ul><h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Install <strong>Compass</strong> and <strong>Susy</strong>:</p>
+
+<pre><code>$ gem install compass
+$ gem install susy
+</code></pre>
+
+<p>Install <strong>wkpdf</strong> or <strong>wkhtmltopdf</strong>. If on MacOSX please check Troubleshooting section for installing correctly wkpdf.</p>
+
+<p>Install <strong>Pandoc</strong> by using your package manager or by using the provided installer <a href="http://johnmacfarlane.net/pandoc/installing.html">http://johnmacfarlane.net/pandoc/installing.html</a> (or using <em>cabal</em>)</p>
+
+<p>Install <strong>exiftool</strong> by using your package manager (use <a href="http://brew.sh/">brew</a> on Mac)</p>
+
+<p><strong>rsync</strong> should already be installed... if not, install it using your package manager.</p>
+
+<p>You are done!</p>
 
 <h2>
 <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
@@ -60,36 +142,6 @@ $ make pdf HTMLTOPDF=wkhtmltopdf
 <p>There you are!</p>
 
 <h2>
-<a name="screenshots" class="anchor" href="#screenshots"><span class="octicon octicon-link"></span></a>Screenshots</h2>
-
-<h3>
-<a name="html5" class="anchor" href="#html5"><span class="octicon octicon-link"></span></a>HTML5</h3>
-
-<table>
-<thead><tr>
-<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png" alt="Pandoc-ModernCV large-screen preview "></th>
-</tr></thead>
-<tbody>
-<tr>
-<td align="center"><strong>Screenshot of the HTML scaffold CV taken for a large screen.</strong></td>
-</tr>
-<tr>
-<td align="center">See also <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/medium-screen.png">medium-screen preview</a> or <a href="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/small-screen.png">small-screen preview</a>
-</td>
-</tr>
-</tbody>
-</table><h3>
-<a name="pdf" class="anchor" href="#pdf"><span class="octicon octicon-link"></span></a>PDF</h3>
-
-<table>
-<thead><tr>
-<th align="center"><img src="https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png" alt="Pandoc-ModernCV PDF export preview "></th>
-</tr></thead>
-<tbody><tr>
-<td align="center">
-<strong>Screenshot of the PDF scaffold CV.</strong> Notice the QR-Code</td>
-</tr></tbody>
-</table><h2>
 <a name="customize" class="anchor" href="#customize"><span class="octicon octicon-link"></span></a>Customize</h2>
 
 <h3>
@@ -120,121 +172,121 @@ put here your *CV* data
 
 <table>
 <thead><tr>
-<th>key</th>
+<th align="left">key</th>
 <th align="center">type</th>
-<th>value</th>
+<th align="left">value</th>
 </tr></thead>
 <tbody>
 <tr>
-<td>lang</td>
+<td align="left">lang</td>
 <td align="center">string</td>
-<td>en</td>
+<td align="left">en</td>
 </tr>
 <tr>
-<td>title</td>
+<td align="left">title</td>
 <td align="center">string</td>
-<td>Résumé Title</td>
+<td align="left">Résumé Title</td>
 </tr>
 <tr>
-<td>firstname</td>
+<td align="left">firstname</td>
 <td align="center">string</td>
-<td>Firstname</td>
+<td align="left">Firstname</td>
 </tr>
 <tr>
-<td>lastname</td>
+<td align="left">lastname</td>
 <td align="center">string</td>
-<td>Lastname</td>
+<td align="left">Lastname</td>
 </tr>
 <tr>
-<td>photo</td>
+<td align="left">photo</td>
 <td align="center">url</td>
-<td>path/to/photo.png</td>
+<td align="left">path/to/photo.png</td>
 </tr>
 <tr>
-<td>qrcode</td>
+<td align="left">qrcode</td>
 <td align="center">url</td>
-<td>images/qrcode.png</td>
+<td align="left">images/qrcode.png</td>
 </tr>
 <tr>
-<td>contact</td>
+<td align="left">contact</td>
 <td align="center">url</td>
-<td><a href="http://contact.yoursite.com">http://contact.yoursite.com</a></td>
+<td align="left"><a href="http://contact.yoursite.com">http://contact.yoursite.com</a></td>
 </tr>
 <tr>
-<td>homepage</td>
+<td align="left">homepage</td>
 <td align="center">url</td>
-<td><a href="http://yoursite.com">http://yoursite.com</a></td>
+<td align="left"><a href="http://yoursite.com">http://yoursite.com</a></td>
 </tr>
 <tr>
-<td>email</td>
+<td align="left">email</td>
 <td align="center">email</td>
-<td><a href="mailto:contact@yoursite.com">contact@yoursite.com</a></td>
+<td align="left"><a href="mailto:contact@yoursite.com">contact@yoursite.com</a></td>
 </tr>
 <tr>
-<td>mobile</td>
+<td align="left">mobile</td>
 <td align="center">string</td>
-<td>'+1 (234) 567 890'</td>
+<td align="left">'+1 (234) 567 890'</td>
 </tr>
 <tr>
-<td>phone</td>
+<td align="left">phone</td>
 <td align="center">string</td>
-<td>'+2 (345) 678 901'</td>
+<td align="left">'+2 (345) 678 901'</td>
 </tr>
 <tr>
-<td>fax</td>
+<td align="left">fax</td>
 <td align="center">string</td>
-<td>'+3 (456) 789 012'</td>
+<td align="left">'+3 (456) 789 012'</td>
 </tr>
 <tr>
-<td>footer</td>
+<td align="left">footer</td>
 <td align="center">markdown</td>
-<td>
+<td align="left">
 <strong>custom</strong> <em>markdown</em> text</td>
 </tr>
 <tr>
-<td><strong>address</strong></td>
+<td align="left"><strong>address</strong></td>
 <td align="center">map</td>
-<td></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td>city</td>
+<td align="left">city</td>
 <td align="center">string</td>
-<td>City</td>
+<td align="left">City</td>
 </tr>
 <tr>
-<td>country</td>
+<td align="left">country</td>
 <td align="center">string</td>
-<td>Country</td>
+<td align="left">Country</td>
 </tr>
 <tr>
-<td><strong>settings</strong></td>
+<td align="left"><strong>settings</strong></td>
 <td align="center">map</td>
-<td></td>
+<td align="left"></td>
 </tr>
 <tr>
-<td>protect-email</td>
+<td align="left">protect-email</td>
 <td align="center">boolean</td>
-<td>true/false (default: false)</td>
+<td align="left">true/false (default: false)</td>
 </tr>
 <tr>
-<td>protect-mobile</td>
+<td align="left">protect-mobile</td>
 <td align="center">boolean</td>
-<td>true/false (default: false)</td>
+<td align="left">true/false (default: false)</td>
 </tr>
 <tr>
-<td>protect-phone</td>
+<td align="left">protect-phone</td>
 <td align="center">boolean</td>
-<td>true/false (default: false)</td>
+<td align="left">true/false (default: false)</td>
 </tr>
 <tr>
-<td>protect-fax</td>
+<td align="left">protect-fax</td>
 <td align="center">boolean</td>
-<td>true/false (default: false)</td>
+<td align="left">true/false (default: false)</td>
 </tr>
 <tr>
-<td>display-lastupdate</td>
+<td align="left">display-lastupdate</td>
 <td align="center">boolean</td>
-<td>true/false (default: false)</td>
+<td align="left">true/false (default: false)</td>
 </tr>
 </tbody>
 </table><h3>
@@ -343,24 +395,39 @@ $mobile-icon: $fa-var-mobile;
 $fax-icon: $fa-var-print;
 </code></pre>
 
+<h1>
+<a name="troubleshooting" class="anchor" href="#troubleshooting"><span class="octicon octicon-link"></span></a>Troubleshooting</h1>
+
 <h2>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements</h2>
+<a name="cannot-load-such-file----sassscriptnode-loaderror" class="anchor" href="#cannot-load-such-file----sassscriptnode-loaderror"><span class="octicon octicon-link"></span></a>Cannot load such file -- sass/script/node (LoadError)</h2>
 
-<p>For building your CV in html you need:</p>
+<p>For some reasons there is a bug when installing the latest version of Compass... your install of Sass get messed up (I didn't have time to investigate: if you have a better workaround/explanation let me know). </p>
+
+<p>To get over it just uninstall sass and install it again:</p>
+
+<pre><code>$ gem uninstall sass
+$ gem install sass
+</code></pre>
+
+<h2>
+<a name="cannot-load-rubycocoa-library" class="anchor" href="#cannot-load-rubycocoa-library"><span class="octicon octicon-link"></span></a>Cannot load RubyCocoa library</h2>
+
+<p>When trying to install wkpdf on MacOsx you may be told that <em>wkpdf requires that RubyCocoa is installed...</em> The fact is that using wkpdf with non-default Ruby installations is not supported.</p>
+
+<p>You must install wkpdf with the native ruby packaged on your mac:</p>
 
 <ul>
-<li>Compass, <a href="http://compass-style.org/">http://compass-style.org/</a>
-</li>
-<li>Pandoc, <a href="http://johnmacfarlane.net/pandoc/">http://johnmacfarlane.net/pandoc/</a>
-</li>
-</ul><p>For exporting your CV to pdf you need one of those:</p>
+<li><a href="https://github.com/plessl/wkpdf/issues/36">https://github.com/plessl/wkpdf/issues/36</a></li>
+<li><a href="https://github.com/sstephenson/rbenv/issues/270">https://github.com/sstephenson/rbenv/issues/270</a></li>
+</ul><p>You can use <em>rvm</em> or simply do:</p>
 
-<ul>
-<li>wkpdf (MacOS X), <a href="http://plessl.github.io/wkpdf/">http://plessl.github.io/wkpdf/</a>
-</li>
-<li>wkhtmltopdf (Linux, Windows), <a href="http://wkhtmltopdf.org/">http://wkhtmltopdf.org/</a>
-</li>
-</ul>
+<pre><code>$ sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install wkpdf
+</code></pre>
+
+<p>To check if your install is correct be sure that the first line of <em>/usr/bin/wkpdf</em> file looks like the following:</p>
+
+<pre><code>#!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
+</code></pre>
         </section>
 
         <aside id="sidebar">
