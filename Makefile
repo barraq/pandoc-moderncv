@@ -43,7 +43,7 @@ $(DIST_DIR):
 # Targets for creating scaffold
 scaffold:
 ifeq "$(wildcard $(SRC_DIR) )" ""
-	@rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
+	rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
 	@echo $(SRC_DIR) created, enjoy!;
 else 
 	@echo $(SRC_DIR) already exists!;
