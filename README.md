@@ -186,4 +186,5 @@ For exporting your CV to pdf you need:
 - wkpdf or wkhtmltopdf:
     - wkpdf (MacOS X), http://plessl.github.io/wkpdf/
     - wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
+- exiftool, http://www.sno.phy.queensu.ca/~phil/exiftool/
 
