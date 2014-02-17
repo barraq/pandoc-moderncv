@@ -178,10 +178,12 @@ All themes can be customized through variables defined in *stylesheets/_settings
 ## Requirements
 
 For building your CV in html you need:
+- Compass, http://compass-style.org/
+- RSync, http://rsync.samba.org/
+- Pandoc, http://johnmacfarlane.net/pandoc/
 
-* Compass, http://compass-style.org/
-* Pandoc, http://johnmacfarlane.net/pandoc/
+For exporting your CV to pdf you need:
+- wkpdf or wkhtmltopdf:
+    - wkpdf (MacOS X), http://plessl.github.io/wkpdf/
+    - wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
 
-For exporting your CV to pdf you need one of those:
-* wkpdf (MacOS X), http://plessl.github.io/wkpdf/
-* wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
