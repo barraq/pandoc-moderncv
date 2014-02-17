@@ -517,9 +517,13 @@ footer li:before {
   padding: 10px;
   color: #bfbfbf;
 }
+/* line 260, ../../stylesheets/style.scss */
+footer p {
+  margin-top: 1.27778em;
+}
 
 @media screen {
-  /* line 267, ../../stylesheets/style.scss */
+  /* line 268, ../../stylesheets/style.scss */
   #qrcode {
     display: none;
   }
@@ -535,12 +539,12 @@ footer li:before {
     /* too bad @page is not well supported */
 }
 
-  /* line 298, ../../stylesheets/style.scss */
+  /* line 299, ../../stylesheets/style.scss */
   body {
     min-width: 55.11111em;
   }
 
-  /* line 300, ../../stylesheets/style.scss */
+  /* line 301, ../../stylesheets/style.scss */
   #qrcode {
     width: 19.23077%;
     float: left;
@@ -549,28 +553,28 @@ footer li:before {
     max-width: 5.55556em;
   }
 
-  /* line 307, ../../stylesheets/style.scss */
+  /* line 308, ../../stylesheets/style.scss */
   h2, h3 {
     page-break-after: avoid;
   }
 
-  /* line 308, ../../stylesheets/style.scss */
+  /* line 309, ../../stylesheets/style.scss */
   dt {
     page-break-after: avoid !important;
   }
 
-  /* line 309, ../../stylesheets/style.scss */
+  /* line 310, ../../stylesheets/style.scss */
   dd, p {
     page-break-before: avoid !important;
   }
 
-  /* line 310, ../../stylesheets/style.scss */
+  /* line 311, ../../stylesheets/style.scss */
   dl, dt, dd, p {
     orphans: 3;
     widows: 3;
   }
 
-  /* line 311, ../../stylesheets/style.scss */
+  /* line 312, ../../stylesheets/style.scss */
   dt, dd, p {
     page-break-inside: avoid !important;
   }
