@@ -1,8 +1,23 @@
-**Pandoc-ModernCV** is a Pandoc fa­cil­i­ties for type­set­ting mod­ern cur­ricu­lums vi­tae. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
+**Pandoc-ModernCV** provides Pandoc fa­cil­i­ties for type­set­ting modern **cur­ricu­lums vi­tae in markdown**. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
 
-With **Pandoc-ModernCV** simply write your CV in *Markdown*, compile it and publish it in a snap. 
+> With **Pandoc-ModernCV** simply **write your CV in Markdown**, compile it and publish it in a snap!
 
-Pandoc-ModernCV currently supports *pdf* and *html5* export formats. The html5 output is responsive and supports rendering for small to large screens.
+Pandoc-ModernCV currently supports **pdf** and **html5** export formats. The html5 output is responsive and supports rendering for small to large screens.
+
+## Features
+
+> Writing a CV has never been so simple!
+
+- write your CV in Markdown
+- choose between themes
+- customize your style
+- export to HTML5
+    + responsive layout (mobile, tablet, desktop)
+    + print layout
+- export to PDF
+    + A4 format ready
+    + PDF tags (title, author, etc.)
+- publish public & private CV
 
 ## Preview & Screenshots
 
@@ -212,9 +227,9 @@ All themes can be customized through variables defined in *stylesheets/_settings
     $mobile-icon: $fa-var-mobile;
     $fax-icon: $fa-var-print;
 
-# Troubleshooting
+## Troubleshooting
 
-## Cannot load such file -- sass/script/node (LoadError)
+#### Cannot load such file -- sass/script/node (LoadError)
 
 For some reasons there is a bug when installing the latest version of Compass... your install of Sass get messed up (I didn't have time to investigate: if you have a better workaround/explanation let me know). 
 
@@ -223,7 +238,7 @@ To get over it just uninstall sass and install it again:
     $ gem uninstall sass
     $ gem install sass
 
-## Cannot load RubyCocoa library
+#### Cannot load RubyCocoa library
 
 When trying to install wkpdf on MacOsx you may be told that *wkpdf requires that RubyCocoa is installed...* The fact is that using wkpdf with non-default Ruby installations is not supported.
 
