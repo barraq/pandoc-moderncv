@@ -4,23 +4,16 @@
 
 @import "susy";
 @import "settings";
+@import "mixins";
 @import "layouts";
 @import "fonts";
 
 @include establish-baseline;
 
-// for debugging only
-$show-grid-backgrounds: false;
-$show-baseline-grid-backgrounds: false;
-
 body {
-    @include container($total-columns, $xs-layout, $sm-layout, $md-layout, $lg-layout, $wd-layout);
+    @include container;
 
-    // for debugging only
-    @include susy-grid-background;
-
-    padding-top: $grid-padding;
-    padding-bottom: $grid-padding;
+    padding: $grid-padding;
 }
 
 /* fonts */
@@ -67,7 +60,7 @@ a {
 
 header {
     // header span all grid
-    @include span-columns($total-columns omega);
+    @include span(last $total-columns of $total-columns);
 
     text-align: center;
 
@@ -86,17 +79,17 @@ header {
     // xs to small
     @media screen and (max-width: $sm-layout-max) {
         #title {
-            @include span-columns(12);
+            @include span(last $total-columns of $total-columns);
             @include trailer(1); 
         }
 
         .details {
-            @include span-columns(12);
+            @include span(last $total-columns of $total-columns);
         }
 
         img {
             @include trailer(1); 
-            @include span-columns(12);
+            @include span(last $total-columns of $total-columns);
         }
     }
 
@@ -106,7 +99,7 @@ header {
             @include pad(3,3);
             @include leader(1);
             @include trailer(1); 
-            @include span-columns(6);
+            @include span($total-columns/2 of $total-columns);
         }
     }
 
@@ -115,31 +108,31 @@ header {
 
         &.with-photo {
             #title {
-                @include span-columns(8);
+                @include span($total-columns*2/3 of $total-columns);
                 text-align: right;
 
                 h2 { @include trailer(0.5); }
             }
 
             .details {
-                @include span-columns(8);
+                @include span($total-columns*2/3 of $total-columns);
                 margin-left: 0px;
                 text-align: right;
             }
 
             img {
-                @include span-columns(4 omega);
+                @include span(last $total-columns/3 of $total-columns);
             }
         }
 
         &:not(.with-photo) {
             #title {
-                @include span-columns(7);
+                @include span(7 of $total-columns);
                 text-align: left;
             }
 
             .details {
-                @include span-columns(5 omega);
+                @include span(last 5 of $total-columns);
                 text-align: right;
             }
         }
@@ -149,15 +142,15 @@ header {
     @media screen and (min-width: $lg-layout-min), print, projection {
         &.with-photo {
             #title {
-                @include span-columns(9);
+                @include span(9 of $total-columns);
             }
 
             .details {
-                @include span-columns(9);
+                @include span(9 of $total-columns);
             }
 
             img {
-                @include span-columns(3 omega);
+                @include span(last 3 of $total-columns);
             }
         }
     }
@@ -167,13 +160,13 @@ header {
 
 section {
     // span all grid
-    @include span-columns($total-columns omega);
+    @include span(last $total-columns of $total-columns);
 
     // paragraph
 
     > p { 
         @include leader(1);
-        @include span-columns(12 omega);
+        @include span(last $total-columns of $total-columns);
         text-align: justify; 
     }
 
@@ -181,7 +174,7 @@ section {
 
     > h2 {
         @include leader(1, $h2-font-size);
-        @include span-columns(12 omega);
+        @include span(last $total-columns of $total-columns);
         color: $section-title-color;
 
         &:before {
@@ -198,16 +191,16 @@ section {
     > h3 {
         @include push(2);
         @include leader(1, $h3-font-size);
-        @include span-columns(10 omega);
+        @include span(10 of $total-columns);
     }
 
     // description list
 
     > dl {
-        @include span-columns(12 omega);
+        @include span(last $total-columns of $total-columns);
 
         dl {
-            @include pull(2, 10);
+            @include pull(2 of 10);
         }
     }
 
@@ -217,13 +210,13 @@ section {
     }
 
     dt {
-        @include span-columns(2);
+        @include span(2 of $total-columns);
         text-align: right;
         clear: both;
     }
 
     dd {
-        @include span-columns(10 omega); 
+        @include span(last 10 of $total-columns); 
 
         dt {
             font-style: italic;
@@ -238,7 +231,7 @@ section {
         }
 
         @include leader(1);
-        @include span-columns($total-columns omega);
+        @include span(last $total-columns of $total-columns);
         @include trailer(1);
 
         &, p {
@@ -251,7 +244,7 @@ section {
 
 footer {
     // header span all grid
-    @include span-columns($total-columns omega);
+    @include span(last $total-columns of $total-columns);
     @include rhythm(1, 1);
 
     text-align: center;
@@ -299,7 +292,7 @@ footer {
     body { min-width: $lg-layout-min; } // in order to have a decent rendering
     
     #qrcode {
-        @include span-columns(2, 9);
+        @include span(2 of 9);
         max-width: convert-length($qrcode-width, em);
     }
 

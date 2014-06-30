@@ -42,7 +42,7 @@ Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.p
 
 For building your CV in html you need:
 - [Compass](http://compass-style.org/), 
-- [Susy](http://susy.oddbird.net/),
+- [Susy](http://susy.oddbird.net/) (> 2.1),
 - [RSync](http://rsync.samba.org/),
 - [Pandoc](http://johnmacfarlane.net/pandoc/)
 
