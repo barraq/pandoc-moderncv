@@ -41,7 +41,7 @@ Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.p
 ## Requirements
 
 For building your CV in html you need:
-- [Compass](http://compass-style.org/), 
+- [Compass](http://compass-style.org/) (~ 1.0), 
 - [Susy](http://susy.oddbird.net/) (> 2.1),
 - [RSync](http://rsync.samba.org/),
 - [Pandoc](http://johnmacfarlane.net/pandoc/)
@@ -56,7 +56,7 @@ For exporting your CV to pdf you need:
 
 Install **Compass** and **Susy**:
     
-    $ gem install compass
+    $ gem install compass --pre
     $ gem install susy
 
 Install **wkpdf** or **wkhtmltopdf**. If on MacOSX please check Troubleshooting section for installing correctly wkpdf.
