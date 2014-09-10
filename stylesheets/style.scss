@@ -181,7 +181,7 @@ section {
             content: "";
             display: inline-block;
             margin-right: gutter();
-            width: space(2) - gutter();
+            width: span(2) - gutter();
             height: rhythm($h2-line-multiple/3, $h2-font-size);
             margin-bottom: rhythm($h2-line-multiple/6, $h2-font-size);
             background-color: $section-rectangle-color;
