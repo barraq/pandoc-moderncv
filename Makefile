@@ -5,6 +5,7 @@ SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
 HTMLTOPDF = wkpdf
+WKHTMLTOPDF_OPTIONS= --orientation Portrait --page-size A4 --margin-top 15 --margin-left 15 --margin-right 15 --margin-bottom 15 $(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
 DATE = $(shell date +'%B %d, %Y')
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
@@ -82,8 +83,10 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 pdf: html pdftags
 ifeq ($(HTMLTOPDF),wkpdf)
 	wkpdf --paper a4 --margins 30 --print-background yes --orientation portrait --stylesheet-media print --source $(DIST_DIR)/cv.html --output $(DIST_DIR)/cv.pdf
+else ifeq ($(HTMLTOPDF),wkhtmltopdfpatched)
+	wkhtmltopdf --print-media-type $(WKHTMLTOPDF_OPTIONS)
 else
-	wkhtmltopdf --orientation Portrait --page-size A4 --margin-top 15 --margin-left 15 --margin-right 15 --margin-bottom 15 $(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
+	wkhtmltopdf $(WKHTMLTOPDF_OPTIONS)
 endif
 	exiftool $(shell cat $(BUILD_DIR)/pdftags.txt) $(DIST_DIR)/cv.pdf
 
