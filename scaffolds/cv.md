@@ -15,10 +15,10 @@ address:
   city: City 
   country: Country
 settings:
-  private-email: true
-  private-mobile: true
-  private-phone: true
-  private-fax: true
+  protect-email: true
+  protect-mobile: true
+  protect-phone: true
+  protect-fax: true
 footer: |
   - [yourtwitter](http://twitter.com/yourtwitter)
   - [yourgithub](http://github.com/yourgithub)
