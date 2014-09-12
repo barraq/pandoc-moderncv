@@ -86,6 +86,9 @@
       <li><a href="$homepage$" itemprop="url" title="homepage">$homepage$</a></li>
       $endif$
       <!--if(address)-->
+      $if(address)$
+      $if(settings.protect-address)$
+      $if(privatecv)$
       <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
         $if(address.city)$
         <span itemprop="addressLocality">$address.city$</span>
@@ -94,6 +97,18 @@
         <span itemprop="addressCountry">$address.country$</span>
         $endif$
       </li>
+      $endif$
+      $else$
+      <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        $if(address.city)$
+        <span itemprop="addressLocality">$address.city$</span>
+        $endif$
+        $if(address.country)$
+        <span itemprop="addressCountry">$address.country$</span>
+        $endif$
+      </li>
+      $endif$
+      $endif$
       <!--endif-->
     </ul>
   </header>
