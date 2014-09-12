@@ -303,4 +303,5 @@ footer {
     dd, p { page-break-before: avoid !important;; }
     dl, dt, dd, p { orphans: 3; widows: 3; }
     dt, dd, p { page-break-inside: avoid !important; }
+    .page-breaker { page-break-before: always; }
 }
