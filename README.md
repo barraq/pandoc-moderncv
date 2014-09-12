@@ -41,10 +41,10 @@ Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.p
 ## Requirements
 
 For building your CV in html you need:
-- [Compass](http://compass-style.org/) (~ 1.0), 
-- [Susy](http://susy.oddbird.net/) (> 2.1),
+- [Compass](http://compass-style.org/) (>= 1.0), 
+- [Susy](http://susy.oddbird.net/) (>= 2.1),
 - [RSync](http://rsync.samba.org/),
-- [Pandoc](http://johnmacfarlane.net/pandoc/)
+- [Pandoc](http://johnmacfarlane.net/pandoc/) (>= 1.13)
 
 For exporting your CV to pdf you need:
 - wkpdf or wkhtmltopdf:
@@ -56,7 +56,7 @@ For exporting your CV to pdf you need:
 
 Install **Compass** and **Susy**:
     
-    $ gem install compass --pre
+    $ gem install compass
     $ gem install susy
 
 Install **wkpdf** or **wkhtmltopdf**. If on MacOSX please check Troubleshooting section for installing correctly wkpdf.
@@ -141,6 +141,7 @@ Currently Pandoc-MordernCV supports the following metadata:
 | protect-mobile          | boolean  | true/false (default: false)    |
 | protect-phone           | boolean  | true/false (default: false)    |
 | protect-fax             | boolean  | true/false (default: false)    |
+| protect-address         | boolean  | true/false (default: false)    |
 | display-lastupdate      | boolean  | true/false (default: false)    |
 
 ### Private & Public CV
@@ -160,6 +161,7 @@ Currently Pandoc-ModernCV can protect the following metadata:
 * mobile
 * phone
 * fax
+* address
 
 Metadata can be (un)protected independently as follow:
 
