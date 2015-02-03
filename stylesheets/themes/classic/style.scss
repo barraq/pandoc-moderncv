@@ -1,12 +1,14 @@
 @import "compass/reset";
 @import "compass/typography/vertical_rhythm";
-//@import "vendors/fontawesome/font-awesome";
 
 @import "susy";
-@import "settings";
-@import "mixins";
-@import "layouts";
-@import "fonts";
+
+@import "../../common/settings";
+@import "../../common/mixins";
+@import "../../common/layouts";
+
+$fa-font-path:  "../../fonts" !default;
+@import "../../common/fonts";
 
 @include establish-baseline;
 

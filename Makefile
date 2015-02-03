@@ -1,10 +1,12 @@
 SRC_DIR =  cv
 BUILD_DIR = build
+THEMES_DIR = themes
 FONTS_DIR = fonts
 SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
 HTMLTOPDF = wkpdf
+THEME = classic
 DATE = $(shell date +'%B %d, %Y')
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
@@ -14,6 +16,9 @@ else
 endif
 
 PARTS = $(patsubst $(SRC_DIR)/%.md, $(BUILD_DIR)/%.html, $(PARTS_SOURCES))
+
+STYLESHEETS = $(wildcard stylesheets/themes/*/style.scss)
+THEMES = $(patsubst stylesheets/%, %, $(STYLESHEETS:.scss=.css))
 
 # before-body contains public or private parts
 before-body = --variable=privatecv
@@ -28,7 +33,7 @@ endif
 # after-body contains all parts but public and private
 after-body = $(filter-out $(BUILD_DIR)/public.html $(BUILD_DIR)/private.html, $(PARTS))
 
-.PHONY: all directories media style parts html pdf clean
+.PHONY: all directories media themes parts html pdf clean
 
 # default target is build CV in html
 all: html
@@ -50,14 +55,17 @@ else
 endif
 
 # Target for building stylesheets
-style: stylesheets/*.scss
+themes: $(THEMES)
+	mkdir -p $(DIST_DIR)/stylesheets/ && cp -r $(THEMES_DIR) $(DIST_DIR)
+
+$(THEMES): $(STYLESHEETS)
 	compass compile \
 	  --require susy \
-	  --sass-dir stylesheets \
+	  --sass-dir stylesheets/themes \
 	  --javascripts-dir javascripts \
-	  --css-dir $(DIST_DIR)/stylesheets \
+	  --css-dir $(THEMES_DIR) \
 	  --image-dir $(IMAGES_DIR) \
-	  stylesheets/style.scss
+	  $^
 
 # Target for media
 media: | directories
@@ -65,7 +73,7 @@ media: | directories
 	rsync -rupE $(IMAGES_DIR) $(DIST_DIR)
 
 # Target for building CV document in html
-html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
+html: media themes templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	pandoc --standalone \
 	  --section-divs \
 	  --smart \
@@ -75,7 +83,7 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	  $(before-body) \
 	  $(after-body) \
 	  --variable=date:'$(DATE)' \
-	  --css stylesheets/style.css \
+	  --css $(THEMES_DIR)/$(THEME)/style.css \
 	  --output $(DIST_DIR)/cv.html $(SRC_DIR)/cv.md
 
 # Target for building CV document in PDF

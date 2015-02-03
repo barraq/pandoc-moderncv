@@ -41,20 +41,20 @@ Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.p
 ## Requirements
 
 For building your CV in html you need:
-- [Compass](http://compass-style.org/) (>= 1.0), 
-- [Susy](http://susy.oddbird.net/) (>= 2.1),
 - [RSync](http://rsync.samba.org/),
 - [Pandoc](http://johnmacfarlane.net/pandoc/) (>= 1.13)
 
 For exporting your CV to pdf you need:
-- wkpdf or wkhtmltopdf:
-    - wkpdf (MacOS X), http://plessl.github.io/wkpdf/
-    - wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
-- exiftool, http://www.sno.phy.queensu.ca/~phil/exiftool/
+- [wkpdf](http://plessl.github.io/wkpdf/) (MacOS X) or [wkhtmltopdf](http://wkhtmltopdf.org/) (Linux, Windows),
+- [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/)
+
+For building and customizing themes you need:
+- [Compass](http://compass-style.org/) (>= 1.0), 
+- [Susy](http://susy.oddbird.net/) (>= 2.1)
 
 ## Installation
 
-Install **Compass** and **Susy**:
+Install **Compass** and **Susy** (only if you need to build themes):
     
     $ gem install compass
     $ gem install susy
@@ -192,6 +192,8 @@ To build a private CV just do:
 Currently pandoc-moderncv supports a single theme: classic.
 
 > Feel free to contribute and send me your custom theme!
+
+To create a new THEME_NAME theme create a file `style.scss` under `stylesheets/themes/<THEME_NAME>/`.
 
 ### Colors, Fonts, Icons
 
