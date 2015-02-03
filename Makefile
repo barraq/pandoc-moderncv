@@ -5,9 +5,13 @@ FONTS_DIR = fonts
 SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
-HTMLTOPDF = wkpdf
 THEME = classic
 DATE = $(shell date +'%B %d, %Y')
+
+HTMLTOPDF = wkpdf
+ifneq (,$(shell wkhtmltopdf --version 2>/dev/null))
+	HTMLTOPDF = wkhtmltopdf
+endif
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
 	PARTS_SOURCES=
