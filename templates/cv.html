@@ -41,6 +41,16 @@
     <img src="$photo$" />
     $endif$
     <ul class="details">
+      <!-- age -->
+      $if(age)$
+      $if(settings.protect-age)$
+      $if(privatecv)$
+      <li>$age$</li>
+      $endif$
+      $else$
+      <li>$age$</li>
+      $endif$
+      $endif$
       <!-- phone -->
       $if(phone)$
       $if(settings.protect-phone)$
@@ -90,21 +100,27 @@
       $if(settings.protect-address)$
       $if(privatecv)$
       <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        $if(address.streetAddress)$
+        <span itemprop="streetAddress">$address.streetAddress$</span>
+        $endif$
         $if(address.city)$
         <span itemprop="addressLocality">$address.city$</span>
         $endif$
         $if(address.country)$
-        <span itemprop="addressCountry">$address.country$</span>
+        <br/><span itemprop="addressCountry">$address.country$</span>
         $endif$
       </li>
       $endif$
       $else$
       <li itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+        $if(address.streetAddress)$
+        <span itemprop="streetAddress">$address.streetAddress$</span>
+        $endif$
         $if(address.city)$
         <span itemprop="addressLocality">$address.city$</span>
         $endif$
         $if(address.country)$
-        <span itemprop="addressCountry">$address.country$</span>
+        <br/><span itemprop="addressCountry">$address.country$</span>
         $endif$
       </li>
       $endif$

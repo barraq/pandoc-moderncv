@@ -25,7 +25,7 @@ h1 { @include adjust-font-size-to($h1-font-size, $h1-line-multiple); }
 h2 { @include adjust-font-size-to($h2-font-size, $h2-line-multiple); }
 h3 { @include adjust-font-size-to($h3-font-size, $h3-line-multiple); }
 
-p, dt { 
+p, dt {
     -ms-word-break: break-all;
     word-break: break-all;
 
@@ -38,12 +38,12 @@ p, dt {
             hyphens: auto;
 }
 
-a { 
+a {
     text-decoration: none;
     color: inherit;
 
     // default behavior
-    &[href^="http"] { @extend %external-link-icon; }
+    &[href^="http"] { color: $external-link-color; }
     &[href^="mailto:"] { @extend %email-icon; }
     &.phone { @extend %phone-icon; }
     &.mobile { @extend %mobile-icon; }
@@ -80,7 +80,7 @@ header {
     @media screen and (max-width: $sm-layout-max) {
         #title {
             @include span(last $total-columns of $total-columns);
-            @include trailer(1); 
+            @include trailer(1);
         }
 
         .details {
@@ -88,18 +88,17 @@ header {
         }
 
         img {
-            @include trailer(1); 
-            @include span(last $total-columns of $total-columns);
+            @include trailer(1);
+            max-width: $photo-width
         }
     }
 
     // small
     @media screen and (min-width: $sm-layout-min) and (max-width: $sm-layout-max) {
         img {
-            @include pad(3,3);
             @include leader(1);
-            @include trailer(1); 
-            @include span($total-columns/2 of $total-columns);
+            @include trailer(1);
+            max-width: $photo-width
         }
     }
 
@@ -108,20 +107,21 @@ header {
 
         &.with-photo {
             #title {
-                @include span($total-columns*2/3 of $total-columns);
+                @include span($total-columns*3/4 of $total-columns);
                 text-align: right;
 
                 h2 { @include trailer(0.5); }
             }
 
             .details {
-                @include span($total-columns*2/3 of $total-columns);
+                @include span($total-columns*3/4 of $total-columns);
                 margin-left: 0px;
                 text-align: right;
             }
 
             img {
                 @include span(last $total-columns/3 of $total-columns);
+                max-width: $photo-width
             }
         }
 
@@ -142,15 +142,16 @@ header {
     @media screen and (min-width: $lg-layout-min), print, projection {
         &.with-photo {
             #title {
-                @include span(9 of $total-columns);
+                @include span(10 of $total-columns);
             }
 
             .details {
-                @include span(9 of $total-columns);
+                @include span(10 of $total-columns);
             }
 
             img {
                 @include span(last 3 of $total-columns);
+                max-width: $photo-width
             }
         }
     }
@@ -164,10 +165,10 @@ section {
 
     // paragraph
 
-    > p { 
+    > p {
         @include leader(1);
         @include span(last $total-columns of $total-columns);
-        text-align: justify; 
+        text-align: justify;
     }
 
     // headers
@@ -191,7 +192,7 @@ section {
     > h3 {
         @include push(2);
         @include leader(1, $h3-font-size);
-        @include span(10 of $total-columns);
+        @include span(last $total-columns of $total-columns);
     }
 
     // description list
@@ -206,21 +207,22 @@ section {
 
     #{nest('&:not(.listing) > dl', '> dt, > dd')},
     #{nest('&.listing > dl', '> dt:first-of-type, > dd:first-of-type')} {
-        @include leader(1); 
+        @include leader(1);
     }
 
     dt {
         @include span(2 of $total-columns);
+        width: span(2) - gutter();
         text-align: right;
         clear: both;
     }
 
     dd {
-        @include span(last 10 of $total-columns); 
+        @include span(last 10 of $total-columns);
 
         dt {
             font-style: italic;
-        } 
+        }
     }
 
     // jumbotron
@@ -290,18 +292,19 @@ footer {
     // layout
 
     body { min-width: $lg-layout-min; } // in order to have a decent rendering
-    
+
     #qrcode {
         @include span(2 of 9);
         max-width: convert-length($qrcode-width, em);
     }
 
     // page break
-    
+
     h2, h3 { page-break-after: avoid; }
+    ul { page-break-inside: avoid !important; }
     dt { page-break-after: avoid !important; }
-    dd, p { page-break-before: avoid !important;; }
-    dl, dt, dd, p { orphans: 3; widows: 3; }
-    dt, dd, p { page-break-inside: avoid !important; }
+    dd, p { page-break-before: avoid !important; }
+    //dl, dt, dd, p { orphans: 3; widows: 3; }
+    //dt, dd, p { page-break-inside: avoid !important; }
     .page-breaker { page-break-before: always; }
 }

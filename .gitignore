@@ -2,6 +2,7 @@
 .sass-cache
 build
 dist
+cv
 
 # vim
 [._]*.s[a-w][a-z]

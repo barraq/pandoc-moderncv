@@ -1,8 +1,10 @@
-**Pandoc-ModernCV** provides Pandoc fa­cil­i­ties for type­set­ting modern **cur­ricu­lums vi­tae in markdown**. Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
+**Pandoc-ModernCV** provides Pandoc fa­cil­i­ties for type­set­ting modern **cur­ricu­lums vi­tae in markdown**.
+Inspired by the well known Latex ModernCV, it is fairly cus­tomiz­able, al­low­ing you to use predefined themes and to define your own style by changing colors, fonts, etc.
 
 > With **Pandoc-ModernCV** simply **write your CV in Markdown**, compile it and publish it in a snap!
 
-Pandoc-ModernCV currently supports **pdf** and **html5** export formats. The html5 output is responsive and supports rendering for small to large screens.
+Pandoc-ModernCV currently supports **pdf** and **html5** export formats.
+The html5 output is responsive and supports rendering for small to large screens.
 
 ## Features
 
@@ -23,7 +25,7 @@ Pandoc-ModernCV currently supports **pdf** and **html5** export formats. The htm
 
 ### HTML5
 
-Live **html5** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.html) 
+Live **html5** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.html)
 
 | ![Pandoc-ModernCV large-screen preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/large-screen.png) |
 | :----: |
@@ -32,7 +34,7 @@ Live **html5** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv
 
 ### PDF
 
-Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.pdf) 
+Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.pdf)
 
 | ![Pandoc-ModernCV PDF export preview ](https://raw.github.com/barraq/pandoc-moderncv/gh-pages/media/images/cv-pdf.png) |
 | :----: |
@@ -41,29 +43,27 @@ Live **pdf** preview [here](http://barraq.github.io/pandoc-moderncv/preview/cv.p
 ## Requirements
 
 For building your CV in html you need:
-- [Compass](http://compass-style.org/) (>= 1.0), 
-- [Susy](http://susy.oddbird.net/) (>= 2.1),
-- [RSync](http://rsync.samba.org/),
+- [Compass](http://compass-style.org) (>= 1.0),
+- [Susy](http://susy.oddbird.net) (>= 2.1),
+- [rsync](http://rsync.samba.org),
 - [Pandoc](http://johnmacfarlane.net/pandoc/) (>= 1.13)
 
 For exporting your CV to pdf you need:
-- wkpdf or wkhtmltopdf:
-    - wkpdf (MacOS X), http://plessl.github.io/wkpdf/
-    - wkhtmltopdf (Linux, Windows), http://wkhtmltopdf.org/
-- exiftool, http://www.sno.phy.queensu.ca/~phil/exiftool/
+- [wkhtmltopdf](http://wkhtmltopdf.org)
+- [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/)
 
 ## Installation
 
 Install **Compass** and **Susy**:
-    
+
     $ gem install compass
     $ gem install susy
 
-Install **wkpdf** or **wkhtmltopdf**. If on MacOSX please check Troubleshooting section for installing correctly wkpdf.
+Install **wkhtmltopdf**.
 
 Install **Pandoc** by using your package manager or by using the provided installer http://johnmacfarlane.net/pandoc/installing.html (or using *cabal*)
 
-Install **exiftool** by using your package manager (use [brew](http://brew.sh/) on Mac)
+Install **ExifTool** by using your package manager (use [brew](http://brew.sh) on Mac)
 
 **rsync** should already be installed... if not, install it using your package manager.
 
@@ -71,12 +71,14 @@ You are done!
 
 ## Getting Started
 
-The simplest way to get started with *pandoc-moderncv* is to use the provided scaffold. In a terminal just do:
+The simplest way to get started with *pandoc-moderncv* is to use the provided scaffold.
+In a terminal just do:
 
     $ make scaffold
     $ make html
 
-What it does it that it creates a scaffold *cv* located in the /cv directory and builds an html version of it. To open the generated cv just do:
+What it does it that it creates a scaffold *cv* located in the /cv directory and builds an html version of it.
+To open the generated cv just do:
 
     $ open dist/cv.html
 
@@ -88,7 +90,7 @@ To export the CV to pdf just do:
     on Linux/Windows
     $ make pdf HTMLTOPDF=wkhtmltopdf
 
-Hit the link to [preview the generated pdf](https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf) 
+Hit the link to [preview the generated pdf](https://github.com/barraq/pandoc-moderncv/raw/gh-pages/preview/cv.pdf)
 
 There you are!
 
@@ -107,7 +109,7 @@ Your CV can be customized with metadata. Metadata are located between two --- se
     email: contact@yoursite.com
     mobile: '+1 (234) 567 890'
     address:
-      city: City 
+      city: City
       country: Country
     settings:
       protect-mobile: true
@@ -116,7 +118,7 @@ Your CV can be customized with metadata. Metadata are located between two --- se
 
     put here your *CV* data
 
-Currently Pandoc-MordernCV supports the following metadata:
+Currently Pandoc-ModernCV supports the following metadata:
 
 | key                     |  type    | value                          |
 | :---------------------- | :------: | :----------------------------- |
@@ -124,6 +126,7 @@ Currently Pandoc-MordernCV supports the following metadata:
 | title                   | string   | Résumé Title                   |
 | firstname               | string   | Firstname                      |
 | lastname                | string   | Lastname                       |
+| age                     | string   | YourAge                        |
 | photo                   | url      | path/to/photo.png              |
 | qrcode                  | url      | images/qrcode.png              |
 | contact                 | url      | http://contact.yoursite.com    |
@@ -137,6 +140,7 @@ Currently Pandoc-MordernCV supports the following metadata:
 |   city                  | string   | City                           |
 |   country               | string   | Country                        |
 | **settings**            | map      |                                |
+| protect-age             | boolean  | true/false (default: false)    |
 | protect-email           | boolean  | true/false (default: false)    |
 | protect-mobile          | boolean  | true/false (default: false)    |
 | protect-phone           | boolean  | true/false (default: false)    |
@@ -146,7 +150,8 @@ Currently Pandoc-MordernCV supports the following metadata:
 
 ### Private & Public CV
 
-It is often handy to hide/show specific informations in your CV depending on where it is published/sent. Pandoc-ModernCV supports **public** and **private** cv:
+It is often handy to hide/show specific informations in your CV depending on where it is published/sent.
+Pandoc-ModernCV supports **public** and **private** cv:
 * when **public**:
     - protected metadata are removed.
     - *cv/public.md* is displayed just after the header and before the CV body.
@@ -157,6 +162,7 @@ It is often handy to hide/show specific informations in your CV depending on whe
 #### Protecting Metadata
 
 Currently Pandoc-ModernCV can protect the following metadata:
+* age
 * email
 * mobile
 * phone
@@ -171,7 +177,6 @@ Metadata can be (un)protected independently as follow:
       protect-mobile: true # this protect *mobile*
       protect-email: false # this unprotect *email*
     ---
-
 
 #### Building Private/Public CV
 
@@ -195,7 +200,8 @@ Currently pandoc-moderncv supports a single theme: classic.
 
 ### Colors, Fonts, Icons
 
-All themes can be customized through variables defined in *stylesheets/_settings.scss*. Currently the variables are:
+All themes can be customized through variables defined in *stylesheets/_settings.scss*.
+Currently the variables are:
 
     $base-font-size: 18px;
     $base-line-height: 23px;
@@ -233,25 +239,9 @@ All themes can be customized through variables defined in *stylesheets/_settings
 
 #### Cannot load such file -- sass/script/node (LoadError)
 
-For some reasons there is a bug when installing the latest version of Compass... your install of Sass get messed up (I didn't have time to investigate: if you have a better workaround/explanation let me know). 
+For some reasons there is a bug when installing the latest version of Compass... your install of Sass get messed up (I didn't have time to investigate: if you have a better workaround/explanation let me know).
 
 To get over it just uninstall sass and install it again:
 
     $ gem uninstall sass
     $ gem install sass
-
-#### Cannot load RubyCocoa library
-
-When trying to install wkpdf on MacOsx you may be told that *wkpdf requires that RubyCocoa is installed...* The fact is that using wkpdf with non-default Ruby installations is not supported.
-
-You must install wkpdf with the native ruby packaged on your mac:
-- https://github.com/plessl/wkpdf/issues/36
-- https://github.com/sstephenson/rbenv/issues/270
-
-You can use *rvm* or simply do:
-
-    $ sudo /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/gem install wkpdf
-
-To check if your install is correct be sure that the first line of */usr/bin/wkpdf* file looks like the following:
-
-    #!/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/bin/ruby
