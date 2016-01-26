@@ -91,7 +91,7 @@ pdf: html pdftags
 	--margin-right 15 \
 	--margin-bottom 15 \
 	$(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
-	exiftool $(shell cat $(BUILD_DIR)/pdftags.txt) $(DIST_DIR)/cv.pdf
+	exiftool -overwrite_original $(shell cat $(BUILD_DIR)/pdftags.txt) $(DIST_DIR)/cv.pdf
 
 pdftags: $(SRC_DIR)/cv.md
 	pandoc \
