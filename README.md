@@ -124,6 +124,7 @@ Currently Pandoc-ModernCV supports the following metadata:
 | :---------------------- | :------: | :----------------------------- |
 | lang                    | string   | en                             |
 | title                   | string   | Résumé Title                   |
+| subject                 | string   | Subject                        |
 | firstname               | string   | Firstname                      |
 | lastname                | string   | Lastname                       |
 | age                     | string   | YourAge                        |
