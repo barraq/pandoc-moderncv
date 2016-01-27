@@ -1,6 +1,7 @@
 SRC_DIR =  cv
 BUILD_DIR = build
-FONTS_DIR = fonts
+STYLES_DIR = styles
+FONTS_DIR = $(STYLES_DIR)/fonts
 SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
@@ -49,14 +50,9 @@ else
 endif
 
 # Target for building stylesheets
-style: stylesheets/*.scss
-	compass compile \
-	--require susy \
-	--sass-dir stylesheets \
-	--javascripts-dir javascripts \
-	--css-dir $(DIST_DIR)/stylesheets \
-	--image-dir $(IMAGES_DIR) \
-	stylesheets/style.scss
+style:
+	compass compile $(STYLES_DIR)
+	rsync -rupE $(STYLES_DIR)/stylesheets $(DIST_DIR)
 
 # Target for media
 media: | directories
@@ -75,7 +71,6 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	$(before-body) \
 	$(after-body) \
 	--variable=date:'$(DATE)' \
-	--css stylesheets/style.css \
 	--output $(DIST_DIR)/cv.html $(SRC_DIR)/cv.md
 
 # Target for building CV document in PDF
@@ -86,10 +81,10 @@ pdf: html pdftags
 	--orientation Portrait \
 	--footer-html templates/footer.html \
 	--page-size A4 \
-	--margin-top 15 \
-	--margin-left 15 \
-	--margin-right 15 \
-	--margin-bottom 15 \
+	--margin-top 10 \
+	--margin-left 10 \
+	--margin-right 10 \
+	--margin-bottom 10 \
 	$(DIST_DIR)/cv.html $(DIST_DIR)/cv.pdf
 	exiftool -overwrite_original $(shell cat $(BUILD_DIR)/pdftags.txt) $(DIST_DIR)/cv.pdf
 
@@ -111,5 +106,7 @@ $(PARTS): $(BUILD_DIR)/%.html: $(SRC_DIR)/%.md | directories
 
 # Target for cleaning
 clean:
+	compass clean $(STYLES_DIR)
+	rm -rf $(STYLES_DIR)/stylesheets
 	rm -rf $(DIST_DIR)
 	rm -rf $(BUILD_DIR)

@@ -229,13 +229,6 @@ Currently the variables are:
     $subsection-color: rgb(0, 0, 0);
     $hint-color: rgb(0, 0, 0);
 
-    // Icons
-    $external-link-icon: $fa-var-external-link;
-    $email-icon: $fa-var-envelope-o;
-    $phone-icon: $fa-var-phone;
-    $mobile-icon: $fa-var-mobile;
-    $fax-icon: $fa-var-print;
-
 ## Troubleshooting
 
 #### Cannot load such file -- sass/script/node (LoadError)

@@ -1,0 +1,21 @@
+$fa-font-path:  "../fonts/" !default;
+
+@import "font-awesome";
+
+%icon {
+    @extend .fa;
+
+    padding-right: 5px;
+}
+
+// info icons
+%external-link-icon:before { @extend %icon; @extend .fa-external-link; }
+%email-icon:before { @extend %icon; @extend .fa-envelope; }
+%phone-icon:before { @extend %icon; @extend .fa-phone; }
+%mobile-icon:before { @extend %icon; @extend .fa-mobile-phone; }
+%fax-icon:before { @extend %icon; @extend .fa-fax; }
+
+// social icons
+%twitter-icon:before { @extend %icon; @extend .fa-twitter; }
+%github-icon:before { @extend %icon; @extend .fa-github; }
+%linkedin-icon:before { @extend %icon; @extend .fa-linkedin; }
