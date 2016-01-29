@@ -131,23 +131,24 @@ Currently Pandoc-ModernCV supports the following metadata:
 | photo                   | url      | path/to/photo.png              |
 | qrcode                  | url      | images/qrcode.png              |
 | contact                 | url      | http://contact.yoursite.com    |
-| homepage                | url      |  http://yoursite.com           |
+| homepage                | url      | http://yoursite.com            |
 | email                   | email    | contact@yoursite.com           |
 | mobile                  | string   | '+1 (234) 567 890'             |
 | phone                   | string   | '+2 (345) 678 901'             |
 | fax                     | string   | '+3 (456) 789 012'             |
+| header                  | markdown | **custom** *markdown* text     |
 | footer                  | markdown | **custom** *markdown* text     |
 | **address**             | map      |                                |
 |   city                  | string   | City                           |
 |   country               | string   | Country                        |
 | **settings**            | map      |                                |
-| protect-age             | boolean  | true/false (default: false)    |
-| protect-email           | boolean  | true/false (default: false)    |
-| protect-mobile          | boolean  | true/false (default: false)    |
-| protect-phone           | boolean  | true/false (default: false)    |
-| protect-fax             | boolean  | true/false (default: false)    |
-| protect-address         | boolean  | true/false (default: false)    |
-| display-lastupdate      | boolean  | true/false (default: false)    |
+|   protect-age           | boolean  | true/false (default: false)    |
+|   protect-email         | boolean  | true/false (default: false)    |
+|   protect-mobile        | boolean  | true/false (default: false)    |
+|   protect-phone         | boolean  | true/false (default: false)    |
+|   protect-fax           | boolean  | true/false (default: false)    |
+|   protect-address       | boolean  | true/false (default: false)    |
+|   display-lastupdate    | boolean  | true/false (default: false)    |
 
 ### Private & Public CV
 
