@@ -1,7 +1,7 @@
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
- * <link href="stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <link href="stylesheets/style.css" media="screen, projection, print" rel="stylesheet" type="text/css" />
  */
 
 @import "compass/reset";
@@ -81,7 +81,8 @@ header {
         color: $title-color;
     }
 
-    [itemprop='address'] { color: $address-color; }
+    [itemprop="address"] { color: $address-color; }
+    [itemprop="addressCountry"] { display: block; }
 
     // xs to small
     @media screen and (max-width: $sm-layout-max) {
@@ -231,6 +232,17 @@ section {
         dt {
             font-style: italic;
         }
+
+        li {
+            padding-left: 20px;
+            text-indent: -30px;
+
+            &:before {
+                content: '\25CF';
+                padding: 10px;
+                color: $section-rectangle-color;
+            }
+        }
     }
 
     // jumbotron
@@ -248,6 +260,22 @@ section {
             text-align: center;
         }
     }
+
+    // grid
+
+    &.grid > section {
+
+        // small
+        @media screen and (min-width: $sm-layout-min) and (max-width: $sm-layout-max) {
+            // span all grid
+            @include span(last $total-columns of $total-columns);
+        }
+
+        // medium and beyond
+        @media screen and (min-width: $md-layout-min), print, projection {
+            @include span(last $total-columns/2 of $total-columns);
+        }
+    }
 }
 
 /*
@@ -257,7 +285,7 @@ section {
 footer {
     // header span all grid
     @include span(last $total-columns of $total-columns);
-    @include rhythm(1, 1);
+    @include rhythm(1);
 
     text-align: center;
 
@@ -312,5 +340,5 @@ footer {
     dd, p { page-break-before: avoid !important; }
     // dl, dt, dd, p { orphans: 3; widows: 3; }
     // dt, dd, p { page-break-inside: avoid !important; }
-    .page-breaker { page-break-before: always; }
+    .page-breaker { page-break-before: always !important; }
 }

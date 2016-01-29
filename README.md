@@ -201,33 +201,37 @@ Currently pandoc-moderncv supports a single theme: classic.
 
 ### Colors, Fonts, Icons
 
-All themes can be customized through variables defined in *stylesheets/_settings.scss*.
+All themes can be customized through variables defined in *styles/sass/_settings.scss*.
 Currently the variables are:
 
-    $base-font-size: 18px;
-    $base-line-height: 23px;
+    // variables for Vertical Rhythm
+    $base-font-size:    18px;
+    $base-line-height:  24px;
+    $rhythm-unit:       "em";
 
-    $photo-width: 182px;
-    $qrcode-width: 100px;
+    // max width for photo and QR code
+    $photo-width:   128px;
+    $qrcode-width:  100px;
 
-    // Size
-    $h1-font-size:      $base-font-size*2;
+    // default size
+    $h1-font-size:      $base-font-size * 2;
     $h1-line-multiple:  2;
-    $h2-font-size:      $base-font-size*1.5;
+    $h2-font-size:      $base-font-size * 1.5;
     $h2-line-multiple:  1.5;
-    $h3-font-size:      $base-font-size*1.2;
+    $h3-font-size:      $base-font-size * 1.2;
     $h3-line-multiple:  1;
 
-    // Colors
-    $firstname-color: rgb(0, 0, 0);
-    $familyname-color: rgb(0, 0, 0);
-    $title-color: rgb(89, 89, 89);
-    $address-color: rgb(0, 0, 0);
-    $quote-color: rgb(0, 0, 0);
-    $section-rectangle-color: rgb(191, 191, 191);
-    $section-title-color: rgb(89, 89, 89);
-    $subsection-color: rgb(0, 0, 0);
-    $hint-color: rgb(0, 0, 0);
+    // default colors
+    $firstname-color:           rgb(0, 0, 0);
+    $familyname-color:          rgb(0, 0, 0);
+    $title-color:               rgb(89, 89, 89);
+    $address-color:             rgb(0, 0, 0);
+    $quote-color:               rgb(0, 0, 0);
+    $section-rectangle-color:   rgb(191, 191, 191);
+    $section-title-color:       rgb(89, 89, 89);
+    $subsection-color:          rgb(0, 0, 0);
+    $hint-color:                rgb(0, 0, 0);
+    $external-link-color:       rgb(113, 122, 145);
 
 ## Troubleshooting
 
