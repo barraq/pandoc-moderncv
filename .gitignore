@@ -2,6 +2,9 @@
 .sass-cache
 build
 dist
+cv
+styles/*.html
+styles/stylesheets
 
 # vim
 [._]*.s[a-w][a-z]

@@ -1,6 +1,7 @@
 ---
 lang: en
 title: Résumé Title
+subject: Résumé
 firstname: Firstname
 lastname: Lastname
 photo: images/picture.png
@@ -12,7 +13,7 @@ mobile: '+1 (234) 567 890'
 phone: '+2 (345) 678 901'
 fax: '+3 (456) 789 012'
 address:
-  city: City 
+  city: City
   country: Country
 settings:
   protect-email: true
@@ -39,7 +40,7 @@ year-year
 
      What awesome things did you do...
      Or ***anything you want***
-    
+
     extra
       ~ Some extra
     extra
@@ -51,7 +52,7 @@ year-year
 
      What awesome things did you do...
      Or ***anything you want***
-    
+
     extra
       ~ Some extra
     extra
