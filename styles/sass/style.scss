@@ -180,6 +180,19 @@ section {
         text-align: justify;
     }
 
+    // lists
+
+    li {
+        padding-left: 20px;
+        text-indent: -30px;
+
+        &:before {
+            content: '\25CF';
+            padding: 10px;
+            color: $section-rectangle-color;
+        }
+    }
+
     // headers
 
     > h2 {
@@ -231,17 +244,6 @@ section {
 
         dt {
             font-style: italic;
-        }
-
-        li {
-            padding-left: 20px;
-            text-indent: -30px;
-
-            &:before {
-                content: '\25CF';
-                padding: 10px;
-                color: $section-rectangle-color;
-            }
         }
     }
 
