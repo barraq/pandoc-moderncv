@@ -26,7 +26,7 @@
   $endfor$
 </head>
 <body>
-  <header itemscope itemtype="http://http://schema.org/Person" class="$if(photo)$with-photo$endif$">
+  <header itemscope itemtype="http://schema.org/Person" class="$if(photo)$with-photo$endif$">
     <div id="title" class="$if(qrcode)$qrcode$endif$">
       $if(qrcode)$
       <img id="qrcode" src="$qrcode$" />
@@ -48,7 +48,7 @@
       <li><a class='phone' href="phoneto:$phone$">$phone$</a></li>
       $endif$
       $else$
-      <li><a class='phone' href="phoneto:$phone$">$phone$</a></li>
+      <li><a class='phone' href="">$phone$</a></li>
       $endif$
       $endif$
       <!-- mobile -->

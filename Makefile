@@ -5,6 +5,7 @@ SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
 HTMLTOPDF = wkpdf
+THEME = classic
 DATE = $(shell date +'%B %d, %Y')
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
@@ -45,19 +46,19 @@ scaffold:
 ifeq "$(wildcard $(SRC_DIR) )" ""
 	rsync -rupE $(SCAFFOLDS_DIR)/ $(SRC_DIR)/;
 	@echo $(SRC_DIR) created, enjoy!;
-else 
+else
 	@echo $(SRC_DIR) already exists!;
 endif
 
 # Target for building stylesheets
-style: stylesheets/*.scss
+style: stylesheets/$(THEME)/*.scss
 	compass compile \
 	  --require susy \
 	  --sass-dir stylesheets \
 	  --javascripts-dir javascripts \
 	  --css-dir $(DIST_DIR)/stylesheets \
 	  --image-dir $(IMAGES_DIR) \
-	  stylesheets/style.scss
+	  stylesheets/$(THEME)/style.scss
 
 # Target for media
 media: | directories
@@ -75,7 +76,7 @@ html: media style templates/cv.html parts $(SRC_DIR)/cv.md | directories
 	  $(before-body) \
 	  $(after-body) \
 	  --variable=date:'$(DATE)' \
-	  --css stylesheets/style.css \
+	  --css stylesheets/$(THEME)/style.css \
 	  --output $(DIST_DIR)/cv.html $(SRC_DIR)/cv.md
 
 # Target for building CV document in PDF

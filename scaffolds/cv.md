@@ -12,7 +12,7 @@ mobile: '+1 (234) 567 890'
 phone: '+2 (345) 678 901'
 fax: '+3 (456) 789 012'
 address:
-  city: City 
+  city: City
   country: Country
 settings:
   protect-email: true
@@ -22,7 +22,7 @@ settings:
 footer: |
   - [yourtwitter](http://twitter.com/yourtwitter)
   - [yourgithub](http://github.com/yourgithub)
-  - [yourlinkedin](linkedin.com/in/yourlinkedin)
+  - [yourlinkedin](http://linkedin.com/in/yourlinkedin)
 ---
 
 Profile
@@ -39,7 +39,7 @@ year-year
 
      What awesome things did you do...
      Or ***anything you want***
-    
+
     extra
       ~ Some extra
     extra
@@ -51,7 +51,7 @@ year-year
 
      What awesome things did you do...
      Or ***anything you want***
-    
+
     extra
       ~ Some extra
     extra
