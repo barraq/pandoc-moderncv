@@ -54,6 +54,7 @@ a {
     &.twitter, &[href*='twitter.com'] { @extend %twitter-icon; }
     &.github, &[href*='github.com'] { @extend %github-icon; }
     &.linkedin, &[href*='linkedin.com'] { @extend %linkedin-icon; }
+    &.instagram, &[href*='instagram.com'] { @extend %instagram-icon; }
 }
 
 /* Header */
