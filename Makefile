@@ -4,7 +4,7 @@ FONTS_DIR = fonts
 SCAFFOLDS_DIR = scaffolds
 IMAGES_DIR = $(SRC_DIR)/images
 DIST_DIR = dist
-HTMLTOPDF = wkpdf
+HTMLTOPDF ?= wkpdf
 DATE = $(shell date +'%B %d, %Y')
 
 ifeq "$(wildcard $(SRC_DIR) )" ""
@@ -103,6 +103,9 @@ $(PARTS): $(BUILD_DIR)/%.html: $(SRC_DIR)/%.md | directories
 	--from markdown+header_attributes \
 	--variable=date:'$(DATE)' \
 	--to html5 -o $@ $<
+
+docker:
+	docker build -t pandoc-moderncv:latest .
 
 # Target for cleaning
 clean:
