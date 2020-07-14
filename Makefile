@@ -104,7 +104,8 @@ $(PARTS): $(BUILD_DIR)/%.html: $(SRC_DIR)/%.md | directories
 	--variable=date:'$(DATE)' \
 	--to html5 -o $@ $<
 
-docker:
+# Taget for building a docker image that contains the dependencies 
+image:
 	docker build -t pandoc-moderncv:latest .
 
 # Target for cleaning

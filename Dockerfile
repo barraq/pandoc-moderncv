@@ -2,6 +2,7 @@ FROM debian:stretch
 
 # ensure in linux its using wkhtmltopdf
 ENV HTMLTOPDF wkhtmltopdf
+
 ENV WKHTMLTOX_VERSION 0.12.5
 ENV WKHTMLTOX_DEPS fontconfig libfreetype6 libjpeg62-turbo libpng16-16 libx11-6 libxcb1 libxext6 libxrender1 xfonts-75dpi xfonts-base
 

@@ -69,6 +69,24 @@ Install **exiftool** by using your package manager (use [brew](http://brew.sh/) 
 
 You are done!
 
+### Docker all in one
+
+If you prefer not to install the dependencies on your local machine, 
+you can build and run a docker image (assuming you have 
+[docker installed](https://docs.docker.com/get-docker/)).
+
+Build the image: 
+
+```console
+make image
+```
+
+Then run the image with the required targets (see below):
+
+```console
+docker run -v $(pwd):/work -it pandoc-moderncv:latest make html pdf
+```
+
 ## Getting Started
 
 The simplest way to get started with *pandoc-moderncv* is to use the provided scaffold. In a terminal just do:
